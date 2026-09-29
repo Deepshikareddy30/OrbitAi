@@ -1,9 +1,6 @@
 # OrbitAI — Incident Trust Engine
 
-*(Formerly "TrustLens" — renamed 2026-09-29. Internal code/data identifiers such as the
-`"trustlens"` JSON field in `eval/results.json`, `app.state.trustlens`, and the
-`trustlens-incidents`/`trustlens-eval` bank IDs still use the old name - see
-`docs/DECISIONS.md` RENAME1 for what was and wasn't renamed and why.)*
+
 
 An incident-response agent that recalls similar past incidents from **Hindsight** memory,
 scores its recommended fix with a Bayesian-smoothed trust score computed in plain code
