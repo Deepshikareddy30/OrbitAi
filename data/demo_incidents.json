@@ -1,0 +1,162 @@
+[
+  {
+    "id": "DEMO-A",
+    "timestamp": "2026-09-06T09:49:00Z",
+    "service": "cache-cluster",
+    "environment": "prod",
+    "error_signature": "mem_pressure_oom",
+    "symptoms": {
+      "p99_ms": 1020,
+      "error_rate": 0.042,
+      "cpu": 0.59,
+      "mem": 0.96
+    },
+    "changes_before": [],
+    "slack_thread": [
+      "@oncall cache-cluster (prod) paging: memory pressure / OOM kills, p99 1020ms, errors 4.2%"
+    ],
+    "attempts": [],
+    "contributing_factors": [
+      "resource_limit_low"
+    ],
+    "postmortem_note": null,
+    "split": "demo"
+  },
+  {
+    "id": "DEMO-B",
+    "timestamp": "2026-09-06T12:49:00Z",
+    "service": "api-gateway",
+    "environment": "prod",
+    "error_signature": "timeout_upstream",
+    "symptoms": {
+      "p99_ms": 7050,
+      "error_rate": 0.05,
+      "cpu": 0.32,
+      "mem": 0.42
+    },
+    "changes_before": [],
+    "slack_thread": [
+      "@oncall api-gateway (prod) paging: upstream timeouts, p99 7050ms, errors 5.0%"
+    ],
+    "attempts": [],
+    "contributing_factors": [
+      "dependency_degraded"
+    ],
+    "postmortem_note": null,
+    "split": "demo"
+  },
+  {
+    "id": "DEMO-C",
+    "timestamp": "2026-09-06T15:49:00Z",
+    "service": "workflow-engine",
+    "environment": "prod",
+    "error_signature": "mem_pressure_oom",
+    "symptoms": {
+      "p99_ms": 1570,
+      "error_rate": 0.071,
+      "cpu": 0.62,
+      "mem": 0.96
+    },
+    "changes_before": [
+      {
+        "type": "deploy",
+        "detail": "v4.8.0",
+        "minutes_before": 12
+      }
+    ],
+    "slack_thread": [
+      "@oncall workflow-engine (prod) paging: memory pressure / OOM kills, p99 1570ms, errors 7.1%",
+      "anyone ship something? I see deploy v4.8.0 12 min ago"
+    ],
+    "attempts": [],
+    "contributing_factors": [
+      "recent_deploy"
+    ],
+    "postmortem_note": null,
+    "split": "demo"
+  },
+  {
+    "id": "DEMO-D",
+    "timestamp": "2026-09-06T18:49:00Z",
+    "service": "message-queue",
+    "environment": "staging",
+    "error_signature": "consumer_rebalance_storm",
+    "symptoms": {
+      "p99_ms": 2280,
+      "error_rate": 0.058,
+      "cpu": 0.7,
+      "mem": 0.42
+    },
+    "changes_before": [
+      {
+        "type": "config_change",
+        "detail": "message.partitions",
+        "minutes_before": 20
+      }
+    ],
+    "slack_thread": [
+      "@oncall message-queue (staging) paging: consumer rebalance storm, p99 2280ms, errors 5.8%",
+      "anyone ship something? I see config change message.partitions 20 min ago"
+    ],
+    "attempts": [],
+    "contributing_factors": [
+      "config_change"
+    ],
+    "postmortem_note": null,
+    "split": "demo"
+  },
+  {
+    "id": "DEMO-E",
+    "timestamp": "2026-09-06T21:49:00Z",
+    "service": "api-gateway",
+    "environment": "prod",
+    "error_signature": "connection_pool_exhausted",
+    "symptoms": {
+      "p99_ms": 3210,
+      "error_rate": 0.077,
+      "cpu": 0.5,
+      "mem": 0.56
+    },
+    "changes_before": [],
+    "slack_thread": [
+      "@oncall api-gateway (prod) paging: connection pool exhausted, p99 3210ms, errors 7.7%"
+    ],
+    "attempts": [],
+    "contributing_factors": [
+      "connection_pool_low",
+      "traffic_spike"
+    ],
+    "postmortem_note": null,
+    "split": "demo"
+  },
+  {
+    "id": "DEMO-FLAGSHIP",
+    "timestamp": "2026-09-07T00:49:00Z",
+    "service": "billing-service",
+    "environment": "prod",
+    "error_signature": "error_rate_5xx",
+    "symptoms": {
+      "p99_ms": 950,
+      "error_rate": 0.154,
+      "cpu": 0.57,
+      "mem": 0.4
+    },
+    "changes_before": [
+      {
+        "type": "config_change",
+        "detail": "billing.connection_pool_size",
+        "minutes_before": 18
+      }
+    ],
+    "slack_thread": [
+      "@oncall billing-service (prod) paging: 5xx error spike, p99 950ms, errors 15.4%",
+      "anyone ship something? I see config change billing.connection_pool_size 18 min ago"
+    ],
+    "attempts": [],
+    "contributing_factors": [
+      "recent_deploy"
+    ],
+    "postmortem_note": null,
+    "split": "demo"
+  }
+]

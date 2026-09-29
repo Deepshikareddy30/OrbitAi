@@ -1,0 +1,34 @@
+# OrbitAI configuration. Every threshold lives here (SPEC §5.4, §11).
+
+generator:
+  seed: 7
+  n_incidents: 300
+  start: "2026-03-01T00:00:00Z"
+  days: 183                   # ~6 months
+  held_out_fraction: 0.2      # newest 20% by time
+  p_change_before: 0.4        # chance a change (deploy/config/infra/flag) preceded the incident
+  p_drop_true_factor: 0.15    # postmortem noise: forget a true factor
+  p_red_herring_factor: 0.2   # postmortem noise: add an irrelevant factor
+  p_self_heal: 0.04           # failed fix but incident healed on its own (looks resolved)
+  p_unverified: 0.05          # failed fix but someone clicked "resolved" (metrics did not recover)
+  p_recur: 0.08               # fix worked but incident recurred within 24h
+  max_attempts: 3
+  withheld_combo:             # demo D: never appears in train or held_out
+    service: message-queue
+    root_cause: config_error
+
+# Engine settings (used from milestone 3 on). hi / n_min / tau_sim are tuned on a
+# validation slice of train, never on held_out.
+engine:
+  recall_top_n: 30
+  tau_days: 220  # tuned (see tau_sim comment below) - dataset spans ~183 days, 90 crushed good matches
+  n0: 20
+  importance_floor: 0.05   # smoothing mix-in fraction, not a per-dim minimum (~53 dims: see DECISIONS ENG3)
+  l2_C: 1.0
+  tau_sim: 0.35   # tuned: scripts/tune_thresholds.py grid search on a train validation slice
+  hi: 0.35
+  n_min: 3   # n_min=2 let a single noisy failure (real ~15% base failure rate on some
+             # fixes) falsely trigger 'high' on a side with only 2 cases; 3 was more robust
+  top_k: 5
+  near_duplicate_cap: 3
+  risk_mult: {low: 1.0, medium: 1.5, high: 2.0}

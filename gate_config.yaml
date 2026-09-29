@@ -1,0 +1,23 @@
+# Adaptive approval gate defaults (SPEC S6). Tune trust_threshold values on a
+# validation slice, same rule as engine thresholds - never on held_out.
+
+risk_rules:
+  low:
+    trust_threshold: 0.70
+    if_trusted: auto_run      # agree_trust and T >= threshold
+    otherwise: one_click      # notify on-call, one-click approval
+  medium:
+    trust_threshold: 0.60
+    if_trusted: one_click     # one-click on-call approval
+    otherwise: escalate_ic    # escalate to incident commander
+  high:
+    trust_threshold: 0.80
+    if_trusted: one_click     # always human, but a single click suffices
+    otherwise: two_person     # two-person approval required
+
+# Minutes before an unanswered approval escalates to the next tier (SPEC S6:
+# "Unanswered approvals escalate after a configurable timeout (simulate the timer)").
+timeouts_min:
+  one_click: 10
+  escalate_ic: 15
+  two_person: 20

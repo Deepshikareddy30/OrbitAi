@@ -1,0 +1,2617 @@
+{
+  "meta": {
+    "seed": 0,
+    "base_llm": "heuristic-fallback (no GROQ_API_KEY)",
+    "config_hash": "964a126b9c5c",
+    "weight_versions": [
+      "v1",
+      "v2",
+      "v3",
+      "v4",
+      "v5",
+      "v6",
+      "v7",
+      "v8",
+      "v9",
+      "v10",
+      "v11",
+      "v12",
+      "v13",
+      "v14",
+      "v15",
+      "v16",
+      "v17",
+      "v18",
+      "v19",
+      "v20",
+      "v21",
+      "v22",
+      "v23",
+      "v24",
+      "v25",
+      "v26",
+      "v27",
+      "v28",
+      "v29",
+      "v30",
+      "v31",
+      "v32",
+      "v33",
+      "v34",
+      "v35",
+      "v36",
+      "v37",
+      "v38",
+      "v39",
+      "v40",
+      "v41",
+      "v42",
+      "v43",
+      "v44",
+      "v45",
+      "v46",
+      "v47",
+      "v48",
+      "v49",
+      "v50",
+      "v51",
+      "v52",
+      "v53",
+      "v54",
+      "v55",
+      "v56",
+      "v57",
+      "v58",
+      "v59",
+      "v60"
+    ],
+    "n_held_out": 60,
+    "generated_at": "2026-09-29T04:32:57Z",
+    "memory_store": "fake (in-memory keyword-overlap stand-in)",
+    "recall_top_n_used": 200,
+    "note": "Recall used the InMemoryStore fake (no HINDSIGHT_API_KEY configured), widened to top_n=200 to avoid the fake's naive keyword-overlap retrieval bottlenecking these numbers - see docs/DECISIONS.md EVAL2."
+  },
+  "incidents": [
+    {
+      "id": "INC-0241",
+      "timestamp": "2026-07-27T07:50:00Z",
+      "_signature": "timeout_upstream_db",
+      "baseline": {
+        "fix": "db_failover",
+        "p_success": 0.15,
+        "is_best": false,
+        "regret": 0.6885,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "db_failover",
+        "p_success": 0.15,
+        "is_best": false,
+        "regret": 0.6885,
+        "ranked": [
+          "db_failover",
+          "drain_node",
+          "toggle_feature_flag",
+          "scale_out",
+          "raise_resource_limits",
+          "rollback_deploy",
+          "clear_cache",
+          "restart_service"
+        ],
+        "T": 0.7203,
+        "verdict": "agree_trust",
+        "gate": "two_person",
+        "sampled_outcome": "resolved",
+        "sampled_verified": false,
+        "weights_version": "v1",
+        "n_passed": 7,
+        "n_failed": 1
+      }
+    },
+    {
+      "id": "INC-0242",
+      "timestamp": "2026-07-27T12:29:00Z",
+      "_signature": "cpu_throttling",
+      "baseline": {
+        "fix": "scale_out",
+        "p_success": 0.939,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "scale_out",
+        "p_success": 0.939,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "scale_out",
+          "db_failover",
+          "restart_service",
+          "toggle_feature_flag",
+          "raise_resource_limits",
+          "drain_node",
+          "rollback_deploy",
+          "clear_cache"
+        ],
+        "T": 0.7397,
+        "verdict": "agree_trust",
+        "gate": "auto_run",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v1",
+        "n_passed": 8,
+        "n_failed": 2
+      }
+    },
+    {
+      "id": "INC-0243",
+      "timestamp": "2026-07-28T04:27:00Z",
+      "_signature": "error_rate_5xx",
+      "baseline": {
+        "fix": "rollback_deploy",
+        "p_success": 0.6,
+        "is_best": false,
+        "regret": 0.3127,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "rollback_deploy",
+        "p_success": 0.6,
+        "is_best": false,
+        "regret": 0.3127,
+        "ranked": [
+          "rollback_deploy",
+          "toggle_feature_flag",
+          "raise_resource_limits",
+          "db_failover",
+          "scale_out",
+          "clear_cache",
+          "restart_service",
+          "drain_node"
+        ],
+        "T": 0.6923,
+        "verdict": "agree_trust",
+        "gate": "auto_run",
+        "sampled_outcome": "failed",
+        "sampled_verified": true,
+        "weights_version": "v2",
+        "n_passed": 5,
+        "n_failed": 1
+      }
+    },
+    {
+      "id": "INC-0244",
+      "timestamp": "2026-07-28T04:36:00Z",
+      "_signature": "cache_miss_storm",
+      "baseline": {
+        "fix": "clear_cache",
+        "p_success": 0.0735,
+        "is_best": false,
+        "regret": 0.797,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "scale_out",
+        "p_success": 0.8705,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "scale_out",
+          "rollback_deploy",
+          "raise_resource_limits",
+          "drain_node",
+          "db_failover",
+          "toggle_feature_flag",
+          "restart_service",
+          "clear_cache"
+        ],
+        "T": 0.6773,
+        "verdict": "conflict",
+        "gate": "one_click",
+        "sampled_outcome": "recurred",
+        "sampled_verified": true,
+        "weights_version": "v3",
+        "n_passed": 8,
+        "n_failed": 3
+      }
+    },
+    {
+      "id": "INC-0245",
+      "timestamp": "2026-07-28T09:21:00Z",
+      "_signature": "timeout_upstream",
+      "baseline": {
+        "fix": "rollback_deploy",
+        "p_success": 0.0798,
+        "is_best": false,
+        "regret": 0.6202,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "toggle_feature_flag",
+        "p_success": 0.1,
+        "is_best": false,
+        "regret": 0.6,
+        "ranked": [
+          "toggle_feature_flag",
+          "clear_cache",
+          "drain_node",
+          "raise_resource_limits",
+          "db_failover",
+          "scale_out",
+          "rollback_deploy",
+          "restart_service"
+        ],
+        "T": 0.5877,
+        "verdict": "no_evidence",
+        "gate": "one_click",
+        "sampled_outcome": "failed",
+        "sampled_verified": true,
+        "weights_version": "v4",
+        "n_passed": 1,
+        "n_failed": 0
+      }
+    },
+    {
+      "id": "INC-0246",
+      "timestamp": "2026-07-29T06:50:00Z",
+      "_signature": "pod_restarts",
+      "baseline": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "rollback_deploy",
+        "p_success": 0.0123,
+        "is_best": false,
+        "regret": 0.8377,
+        "ranked": [
+          "rollback_deploy",
+          "restart_service",
+          "clear_cache",
+          "drain_node",
+          "db_failover",
+          "scale_out",
+          "raise_resource_limits",
+          "toggle_feature_flag"
+        ],
+        "T": 0.6968,
+        "verdict": "agree_trust",
+        "gate": "one_click",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v5",
+        "n_passed": 3,
+        "n_failed": 0
+      }
+    },
+    {
+      "id": "INC-0247",
+      "timestamp": "2026-07-29T18:30:00Z",
+      "_signature": "error_rate_5xx",
+      "baseline": {
+        "fix": "toggle_feature_flag",
+        "p_success": 0.8697,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "toggle_feature_flag",
+        "p_success": 0.8697,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "toggle_feature_flag",
+          "clear_cache",
+          "raise_resource_limits",
+          "db_failover",
+          "rollback_deploy",
+          "drain_node",
+          "scale_out",
+          "restart_service"
+        ],
+        "T": 0.7254,
+        "verdict": "agree_trust",
+        "gate": "auto_run",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v6",
+        "n_passed": 8,
+        "n_failed": 1
+      }
+    },
+    {
+      "id": "INC-0248",
+      "timestamp": "2026-07-30T02:46:00Z",
+      "_signature": "mem_pressure_oom",
+      "baseline": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "restart_service",
+          "db_failover",
+          "scale_out",
+          "rollback_deploy",
+          "clear_cache",
+          "toggle_feature_flag",
+          "drain_node",
+          "raise_resource_limits"
+        ],
+        "T": 0.666,
+        "verdict": "conflict",
+        "gate": "one_click",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v7",
+        "n_passed": 11,
+        "n_failed": 6
+      }
+    },
+    {
+      "id": "INC-0249",
+      "timestamp": "2026-07-30T21:34:00Z",
+      "_signature": "error_rate_5xx",
+      "baseline": {
+        "fix": "rollback_deploy",
+        "p_success": 0.9607,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "toggle_feature_flag",
+        "p_success": 0.35,
+        "is_best": false,
+        "regret": 0.6107,
+        "ranked": [
+          "toggle_feature_flag",
+          "db_failover",
+          "drain_node",
+          "scale_out",
+          "raise_resource_limits",
+          "rollback_deploy",
+          "clear_cache",
+          "restart_service"
+        ],
+        "T": 0.7244,
+        "verdict": "agree_trust",
+        "gate": "auto_run",
+        "sampled_outcome": "failed",
+        "sampled_verified": true,
+        "weights_version": "v8",
+        "n_passed": 6,
+        "n_failed": 1
+      }
+    },
+    {
+      "id": "INC-0250",
+      "timestamp": "2026-07-30T23:47:00Z",
+      "_signature": "cpu_throttling",
+      "baseline": {
+        "fix": "scale_out",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "scale_out",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "scale_out",
+          "db_failover",
+          "drain_node",
+          "raise_resource_limits",
+          "restart_service",
+          "toggle_feature_flag",
+          "rollback_deploy",
+          "clear_cache"
+        ],
+        "T": 0.7518,
+        "verdict": "agree_trust",
+        "gate": "auto_run",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v9",
+        "n_passed": 9,
+        "n_failed": 2
+      }
+    },
+    {
+      "id": "INC-0251",
+      "timestamp": "2026-07-31T09:37:00Z",
+      "_signature": "mem_pressure_oom",
+      "baseline": {
+        "fix": "rollback_deploy",
+        "p_success": 0.2919,
+        "is_best": false,
+        "regret": 0.5581,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "restart_service",
+          "rollback_deploy",
+          "toggle_feature_flag",
+          "clear_cache",
+          "db_failover",
+          "scale_out",
+          "drain_node",
+          "raise_resource_limits"
+        ],
+        "T": 0.7081,
+        "verdict": "conflict",
+        "gate": "one_click",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v10",
+        "n_passed": 11,
+        "n_failed": 4
+      }
+    },
+    {
+      "id": "INC-0252",
+      "timestamp": "2026-08-01T18:01:00Z",
+      "_signature": "latency_degradation",
+      "baseline": {
+        "fix": "rollback_deploy",
+        "p_success": 0.2,
+        "is_best": false,
+        "regret": 0.65,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "db_failover",
+        "p_success": 0.03,
+        "is_best": false,
+        "regret": 0.82,
+        "ranked": [
+          "db_failover",
+          "restart_service",
+          "scale_out",
+          "toggle_feature_flag",
+          "clear_cache",
+          "raise_resource_limits",
+          "drain_node",
+          "rollback_deploy"
+        ],
+        "T": 0.7455,
+        "verdict": "agree_trust",
+        "gate": "two_person",
+        "sampled_outcome": "failed",
+        "sampled_verified": true,
+        "weights_version": "v11",
+        "n_passed": 4,
+        "n_failed": 0
+      }
+    },
+    {
+      "id": "INC-0253",
+      "timestamp": "2026-08-02T06:33:00Z",
+      "_signature": "timeout_upstream",
+      "baseline": {
+        "fix": "restart_service",
+        "p_success": 0.0735,
+        "is_best": false,
+        "regret": 0.7962,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "toggle_feature_flag",
+        "p_success": 0.8697,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "toggle_feature_flag",
+          "drain_node",
+          "db_failover",
+          "clear_cache",
+          "raise_resource_limits",
+          "rollback_deploy",
+          "scale_out",
+          "restart_service"
+        ],
+        "T": 0.682,
+        "verdict": "conflict",
+        "gate": "one_click",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v12",
+        "n_passed": 10,
+        "n_failed": 4
+      }
+    },
+    {
+      "id": "INC-0254",
+      "timestamp": "2026-08-02T15:33:00Z",
+      "_signature": "timeout_upstream",
+      "baseline": {
+        "fix": "restart_service",
+        "p_success": 0.15,
+        "is_best": false,
+        "regret": 0.4,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "toggle_feature_flag",
+        "p_success": 0.2,
+        "is_best": false,
+        "regret": 0.35,
+        "ranked": [
+          "toggle_feature_flag",
+          "drain_node",
+          "db_failover",
+          "raise_resource_limits",
+          "scale_out",
+          "clear_cache",
+          "rollback_deploy",
+          "restart_service"
+        ],
+        "T": 0.7043,
+        "verdict": "agree_trust",
+        "gate": "auto_run",
+        "sampled_outcome": "failed",
+        "sampled_verified": true,
+        "weights_version": "v13",
+        "n_passed": 9,
+        "n_failed": 2
+      }
+    },
+    {
+      "id": "INC-0255",
+      "timestamp": "2026-08-03T00:41:00Z",
+      "_signature": "latency_degradation",
+      "baseline": {
+        "fix": "rollback_deploy",
+        "p_success": 0.15,
+        "is_best": false,
+        "regret": 0.789,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "db_failover",
+        "p_success": 0.05,
+        "is_best": false,
+        "regret": 0.889,
+        "ranked": [
+          "db_failover",
+          "scale_out",
+          "toggle_feature_flag",
+          "drain_node",
+          "raise_resource_limits",
+          "clear_cache",
+          "restart_service",
+          "rollback_deploy"
+        ],
+        "T": 0.6735,
+        "verdict": "agree_trust",
+        "gate": "two_person",
+        "sampled_outcome": "failed",
+        "sampled_verified": true,
+        "weights_version": "v14",
+        "n_passed": 8,
+        "n_failed": 1
+      }
+    },
+    {
+      "id": "INC-0256",
+      "timestamp": "2026-08-04T06:48:00Z",
+      "_signature": "mem_pressure_oom",
+      "baseline": {
+        "fix": "rollback_deploy",
+        "p_success": 0.2,
+        "is_best": false,
+        "regret": 0.65,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "restart_service",
+          "scale_out",
+          "toggle_feature_flag",
+          "drain_node",
+          "raise_resource_limits",
+          "rollback_deploy",
+          "clear_cache",
+          "db_failover"
+        ],
+        "T": 0.7236,
+        "verdict": "conflict",
+        "gate": "one_click",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v15",
+        "n_passed": 11,
+        "n_failed": 4
+      }
+    },
+    {
+      "id": "INC-0257",
+      "timestamp": "2026-08-05T21:27:00Z",
+      "_signature": "disk_pressure",
+      "baseline": {
+        "fix": "drain_node",
+        "p_success": 0.8454,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "drain_node",
+        "p_success": 0.8454,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "drain_node",
+          "rollback_deploy",
+          "scale_out",
+          "toggle_feature_flag",
+          "db_failover",
+          "clear_cache",
+          "restart_service",
+          "raise_resource_limits"
+        ],
+        "T": 0.6176,
+        "verdict": "agree_trust",
+        "gate": "one_click",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v16",
+        "n_passed": 7,
+        "n_failed": 2
+      }
+    },
+    {
+      "id": "INC-0258",
+      "timestamp": "2026-08-06T17:03:00Z",
+      "_signature": "error_rate_5xx",
+      "baseline": {
+        "fix": "rollback_deploy",
+        "p_success": 0.7121,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "db_failover",
+        "p_success": 0.02,
+        "is_best": false,
+        "regret": 0.6921,
+        "ranked": [
+          "db_failover",
+          "toggle_feature_flag",
+          "raise_resource_limits",
+          "rollback_deploy",
+          "clear_cache",
+          "drain_node",
+          "scale_out",
+          "restart_service"
+        ],
+        "T": 0.6103,
+        "verdict": "no_evidence",
+        "gate": "two_person",
+        "sampled_outcome": "failed",
+        "sampled_verified": true,
+        "weights_version": "v17",
+        "n_passed": 1,
+        "n_failed": 0
+      }
+    },
+    {
+      "id": "INC-0259",
+      "timestamp": "2026-08-07T10:55:00Z",
+      "_signature": "timeout_upstream_db",
+      "baseline": {
+        "fix": "db_failover",
+        "p_success": 0.15,
+        "is_best": false,
+        "regret": 0.6885,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "db_failover",
+        "p_success": 0.15,
+        "is_best": false,
+        "regret": 0.6885,
+        "ranked": [
+          "db_failover",
+          "scale_out",
+          "raise_resource_limits",
+          "drain_node",
+          "toggle_feature_flag",
+          "clear_cache",
+          "rollback_deploy",
+          "restart_service"
+        ],
+        "T": 0.8099,
+        "verdict": "agree_trust",
+        "gate": "one_click",
+        "sampled_outcome": "failed",
+        "sampled_verified": true,
+        "weights_version": "v18",
+        "n_passed": 6,
+        "n_failed": 0
+      }
+    },
+    {
+      "id": "INC-0260",
+      "timestamp": "2026-08-07T17:22:00Z",
+      "_signature": "disk_pressure",
+      "baseline": {
+        "fix": "drain_node",
+        "p_success": 0.8454,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "drain_node",
+        "p_success": 0.8454,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "drain_node",
+          "scale_out",
+          "toggle_feature_flag",
+          "rollback_deploy",
+          "db_failover",
+          "raise_resource_limits",
+          "restart_service",
+          "clear_cache"
+        ],
+        "T": 0.644,
+        "verdict": "agree_trust",
+        "gate": "auto_run",
+        "sampled_outcome": "failed",
+        "sampled_verified": true,
+        "weights_version": "v19",
+        "n_passed": 7,
+        "n_failed": 2
+      }
+    },
+    {
+      "id": "INC-0261",
+      "timestamp": "2026-08-07T20:38:00Z",
+      "_signature": "timeout_upstream",
+      "baseline": {
+        "fix": "rollback_deploy",
+        "p_success": 0.0798,
+        "is_best": false,
+        "regret": 0.7899,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "toggle_feature_flag",
+        "p_success": 0.8697,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "toggle_feature_flag",
+          "drain_node",
+          "raise_resource_limits",
+          "rollback_deploy",
+          "clear_cache",
+          "scale_out",
+          "db_failover",
+          "restart_service"
+        ],
+        "T": 0.5637,
+        "verdict": "conflict",
+        "gate": "one_click",
+        "sampled_outcome": "failed",
+        "sampled_verified": true,
+        "weights_version": "v20",
+        "n_passed": 6,
+        "n_failed": 5
+      }
+    },
+    {
+      "id": "INC-0262",
+      "timestamp": "2026-08-07T22:56:00Z",
+      "_signature": "pod_restarts",
+      "baseline": {
+        "fix": "rollback_deploy",
+        "p_success": 0.9607,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "rollback_deploy",
+        "p_success": 0.9607,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "rollback_deploy",
+          "toggle_feature_flag",
+          "scale_out",
+          "clear_cache",
+          "drain_node",
+          "db_failover",
+          "raise_resource_limits",
+          "restart_service"
+        ],
+        "T": 0.7752,
+        "verdict": "agree_trust",
+        "gate": "one_click",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v21",
+        "n_passed": 5,
+        "n_failed": 0
+      }
+    },
+    {
+      "id": "INC-0263",
+      "timestamp": "2026-08-08T08:21:00Z",
+      "_signature": "timeout_upstream_db",
+      "baseline": {
+        "fix": "db_failover",
+        "p_success": 0.8,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "db_failover",
+        "p_success": 0.8,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "db_failover",
+          "scale_out",
+          "raise_resource_limits",
+          "toggle_feature_flag",
+          "drain_node",
+          "clear_cache",
+          "rollback_deploy",
+          "restart_service"
+        ],
+        "T": 0.5929,
+        "verdict": "agree_trust",
+        "gate": "escalate_ic",
+        "sampled_outcome": "failed",
+        "sampled_verified": true,
+        "weights_version": "v22",
+        "n_passed": 7,
+        "n_failed": 2
+      }
+    },
+    {
+      "id": "INC-0264",
+      "timestamp": "2026-08-08T14:49:00Z",
+      "_signature": "timeout_upstream",
+      "baseline": {
+        "fix": "restart_service",
+        "p_success": 0.0735,
+        "is_best": false,
+        "regret": 0.7962,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "drain_node",
+        "p_success": 0.05,
+        "is_best": false,
+        "regret": 0.8197,
+        "ranked": [
+          "drain_node",
+          "toggle_feature_flag",
+          "clear_cache",
+          "raise_resource_limits",
+          "db_failover",
+          "scale_out",
+          "rollback_deploy",
+          "restart_service"
+        ],
+        "T": 0.7071,
+        "verdict": "agree_trust",
+        "gate": "one_click",
+        "sampled_outcome": "failed",
+        "sampled_verified": true,
+        "weights_version": "v23",
+        "n_passed": 7,
+        "n_failed": 1
+      }
+    },
+    {
+      "id": "INC-0265",
+      "timestamp": "2026-08-08T17:00:00Z",
+      "_signature": "latency_degradation",
+      "baseline": {
+        "fix": "rollback_deploy",
+        "p_success": 0.4046,
+        "is_best": false,
+        "regret": 0.226,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "drain_node",
+        "p_success": 0.35,
+        "is_best": false,
+        "regret": 0.2806,
+        "ranked": [
+          "drain_node",
+          "raise_resource_limits",
+          "restart_service",
+          "toggle_feature_flag",
+          "scale_out",
+          "db_failover",
+          "clear_cache",
+          "rollback_deploy"
+        ],
+        "T": 0.6902,
+        "verdict": "agree_trust",
+        "gate": "one_click",
+        "sampled_outcome": "failed",
+        "sampled_verified": true,
+        "weights_version": "v24",
+        "n_passed": 3,
+        "n_failed": 0
+      }
+    },
+    {
+      "id": "INC-0266",
+      "timestamp": "2026-08-09T02:25:00Z",
+      "_signature": "startup_failure",
+      "baseline": {
+        "fix": "rollback_deploy",
+        "p_success": 0.7121,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "toggle_feature_flag",
+        "p_success": 0.7,
+        "is_best": false,
+        "regret": 0.0121,
+        "ranked": [
+          "toggle_feature_flag",
+          "clear_cache",
+          "raise_resource_limits",
+          "rollback_deploy",
+          "scale_out",
+          "drain_node",
+          "restart_service",
+          "db_failover"
+        ],
+        "T": 0.5738,
+        "verdict": "no_evidence",
+        "gate": "one_click",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v25",
+        "n_passed": 2,
+        "n_failed": 1
+      }
+    },
+    {
+      "id": "INC-0267",
+      "timestamp": "2026-08-09T12:28:00Z",
+      "_signature": "error_rate_5xx",
+      "baseline": {
+        "fix": "rollback_deploy",
+        "p_success": 0.9607,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "toggle_feature_flag",
+        "p_success": 0.35,
+        "is_best": false,
+        "regret": 0.6107,
+        "ranked": [
+          "toggle_feature_flag",
+          "raise_resource_limits",
+          "db_failover",
+          "rollback_deploy",
+          "drain_node",
+          "clear_cache",
+          "scale_out",
+          "restart_service"
+        ],
+        "T": 0.5607,
+        "verdict": "no_evidence",
+        "gate": "one_click",
+        "sampled_outcome": "failed",
+        "sampled_verified": true,
+        "weights_version": "v26",
+        "n_passed": 2,
+        "n_failed": 1
+      }
+    },
+    {
+      "id": "INC-0268",
+      "timestamp": "2026-08-09T18:11:00Z",
+      "_signature": "mem_pressure_oom",
+      "baseline": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "restart_service",
+          "scale_out",
+          "drain_node",
+          "db_failover",
+          "raise_resource_limits",
+          "rollback_deploy",
+          "clear_cache",
+          "toggle_feature_flag"
+        ],
+        "T": 0.7255,
+        "verdict": "agree_trust",
+        "gate": "auto_run",
+        "sampled_outcome": "failed",
+        "sampled_verified": true,
+        "weights_version": "v27",
+        "n_passed": 8,
+        "n_failed": 2
+      }
+    },
+    {
+      "id": "INC-0269",
+      "timestamp": "2026-08-09T18:46:00Z",
+      "_signature": "timeout_upstream",
+      "baseline": {
+        "fix": "restart_service",
+        "p_success": 0.0735,
+        "is_best": false,
+        "regret": 0.7962,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "toggle_feature_flag",
+        "p_success": 0.8697,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "toggle_feature_flag",
+          "db_failover",
+          "drain_node",
+          "rollback_deploy",
+          "raise_resource_limits",
+          "clear_cache",
+          "scale_out",
+          "restart_service"
+        ],
+        "T": 0.5457,
+        "verdict": "conflict",
+        "gate": "one_click",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v28",
+        "n_passed": 10,
+        "n_failed": 8
+      }
+    },
+    {
+      "id": "INC-0270",
+      "timestamp": "2026-08-11T09:49:00Z",
+      "_signature": "startup_failure",
+      "baseline": {
+        "fix": "rollback_deploy",
+        "p_success": 0.7121,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "toggle_feature_flag",
+        "p_success": 0.7,
+        "is_best": false,
+        "regret": 0.0121,
+        "ranked": [
+          "toggle_feature_flag",
+          "clear_cache",
+          "raise_resource_limits",
+          "rollback_deploy",
+          "drain_node",
+          "restart_service",
+          "db_failover",
+          "scale_out"
+        ],
+        "T": 0.6859,
+        "verdict": "no_evidence",
+        "gate": "one_click",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v29",
+        "n_passed": 2,
+        "n_failed": 0
+      }
+    },
+    {
+      "id": "INC-0271",
+      "timestamp": "2026-08-12T01:36:00Z",
+      "_signature": "latency_degradation",
+      "baseline": {
+        "fix": "restart_service",
+        "p_success": 0.15,
+        "is_best": false,
+        "regret": 0.4,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "scale_out",
+        "p_success": 0.25,
+        "is_best": false,
+        "regret": 0.3,
+        "ranked": [
+          "scale_out",
+          "restart_service",
+          "toggle_feature_flag",
+          "db_failover",
+          "drain_node",
+          "raise_resource_limits",
+          "clear_cache",
+          "rollback_deploy"
+        ],
+        "T": 0.7244,
+        "verdict": "agree_trust",
+        "gate": "auto_run",
+        "sampled_outcome": "failed",
+        "sampled_verified": true,
+        "weights_version": "v30",
+        "n_passed": 6,
+        "n_failed": 1
+      }
+    },
+    {
+      "id": "INC-0272",
+      "timestamp": "2026-08-12T01:48:00Z",
+      "_signature": "mem_pressure_oom",
+      "baseline": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "restart_service",
+          "raise_resource_limits",
+          "toggle_feature_flag",
+          "db_failover",
+          "drain_node",
+          "clear_cache",
+          "rollback_deploy",
+          "scale_out"
+        ],
+        "T": 0.73,
+        "verdict": "conflict",
+        "gate": "one_click",
+        "sampled_outcome": "recurred",
+        "sampled_verified": true,
+        "weights_version": "v31",
+        "n_passed": 15,
+        "n_failed": 4
+      }
+    },
+    {
+      "id": "INC-0273",
+      "timestamp": "2026-08-12T04:33:00Z",
+      "_signature": "mem_pressure_oom",
+      "baseline": {
+        "fix": "rollback_deploy",
+        "p_success": 0.9607,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "rollback_deploy",
+        "p_success": 0.9607,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "rollback_deploy",
+          "db_failover",
+          "toggle_feature_flag",
+          "restart_service",
+          "scale_out",
+          "clear_cache",
+          "drain_node",
+          "raise_resource_limits"
+        ],
+        "T": 0.6094,
+        "verdict": "agree_trust",
+        "gate": "auto_run",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v32",
+        "n_passed": 6,
+        "n_failed": 2
+      }
+    },
+    {
+      "id": "INC-0274",
+      "timestamp": "2026-08-13T10:00:00Z",
+      "_signature": "error_rate_5xx",
+      "baseline": {
+        "fix": "rollback_deploy",
+        "p_success": 0.0798,
+        "is_best": false,
+        "regret": 0.7899,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "toggle_feature_flag",
+        "p_success": 0.8697,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "toggle_feature_flag",
+          "rollback_deploy",
+          "clear_cache",
+          "raise_resource_limits",
+          "drain_node",
+          "db_failover",
+          "scale_out",
+          "restart_service"
+        ],
+        "T": 0.6674,
+        "verdict": "conflict",
+        "gate": "one_click",
+        "sampled_outcome": "recurred",
+        "sampled_verified": true,
+        "weights_version": "v33",
+        "n_passed": 8,
+        "n_failed": 3
+      }
+    },
+    {
+      "id": "INC-0275",
+      "timestamp": "2026-08-13T20:52:00Z",
+      "_signature": "mem_pressure_oom",
+      "baseline": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "restart_service",
+          "clear_cache",
+          "toggle_feature_flag",
+          "drain_node",
+          "db_failover",
+          "raise_resource_limits",
+          "scale_out",
+          "rollback_deploy"
+        ],
+        "T": 0.6018,
+        "verdict": "conflict",
+        "gate": "one_click",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v34",
+        "n_passed": 10,
+        "n_failed": 6
+      }
+    },
+    {
+      "id": "INC-0276",
+      "timestamp": "2026-08-14T09:06:00Z",
+      "_signature": "connection_pool_exhausted",
+      "baseline": {
+        "fix": "raise_resource_limits",
+        "p_success": 0.8385,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "raise_resource_limits",
+        "p_success": 0.8385,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "raise_resource_limits",
+          "rollback_deploy",
+          "drain_node",
+          "db_failover",
+          "clear_cache",
+          "toggle_feature_flag",
+          "restart_service",
+          "scale_out"
+        ],
+        "T": 0.539,
+        "verdict": "conflict",
+        "gate": "escalate_ic",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v35",
+        "n_passed": 6,
+        "n_failed": 3
+      }
+    },
+    {
+      "id": "INC-0277",
+      "timestamp": "2026-08-15T03:27:00Z",
+      "_signature": "connection_pool_exhausted",
+      "baseline": {
+        "fix": "raise_resource_limits",
+        "p_success": 0.8385,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "raise_resource_limits",
+        "p_success": 0.8385,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "raise_resource_limits",
+          "rollback_deploy",
+          "drain_node",
+          "db_failover",
+          "toggle_feature_flag",
+          "clear_cache",
+          "scale_out",
+          "restart_service"
+        ],
+        "T": 0.5396,
+        "verdict": "conflict",
+        "gate": "one_click",
+        "sampled_outcome": "failed",
+        "sampled_verified": true,
+        "weights_version": "v36",
+        "n_passed": 4,
+        "n_failed": 3
+      }
+    },
+    {
+      "id": "INC-0278",
+      "timestamp": "2026-08-15T12:43:00Z",
+      "_signature": "cpu_throttling",
+      "baseline": {
+        "fix": "scale_out",
+        "p_success": 0.939,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "scale_out",
+        "p_success": 0.939,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "scale_out",
+          "restart_service",
+          "raise_resource_limits",
+          "drain_node",
+          "toggle_feature_flag",
+          "db_failover",
+          "rollback_deploy",
+          "clear_cache"
+        ],
+        "T": 0.6848,
+        "verdict": "conflict",
+        "gate": "one_click",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v37",
+        "n_passed": 13,
+        "n_failed": 5
+      }
+    },
+    {
+      "id": "INC-0279",
+      "timestamp": "2026-08-15T13:28:00Z",
+      "_signature": "pod_restarts",
+      "baseline": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "restart_service",
+          "rollback_deploy",
+          "scale_out",
+          "toggle_feature_flag",
+          "raise_resource_limits",
+          "drain_node",
+          "db_failover",
+          "clear_cache"
+        ],
+        "T": 0.7618,
+        "verdict": "agree_trust",
+        "gate": "auto_run",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v38",
+        "n_passed": 4,
+        "n_failed": 0
+      }
+    },
+    {
+      "id": "INC-0280",
+      "timestamp": "2026-08-15T20:12:00Z",
+      "_signature": "timeout_upstream_db",
+      "baseline": {
+        "fix": "db_failover",
+        "p_success": 0.15,
+        "is_best": false,
+        "regret": 0.6885,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "db_failover",
+        "p_success": 0.15,
+        "is_best": false,
+        "regret": 0.6885,
+        "ranked": [
+          "db_failover",
+          "drain_node",
+          "raise_resource_limits",
+          "toggle_feature_flag",
+          "scale_out",
+          "clear_cache",
+          "rollback_deploy",
+          "restart_service"
+        ],
+        "T": 0.5556,
+        "verdict": "agree_trust",
+        "gate": "escalate_ic",
+        "sampled_outcome": "failed",
+        "sampled_verified": true,
+        "weights_version": "v39",
+        "n_passed": 7,
+        "n_failed": 2
+      }
+    },
+    {
+      "id": "INC-0281",
+      "timestamp": "2026-08-16T20:45:00Z",
+      "_signature": "mem_pressure_oom",
+      "baseline": {
+        "fix": "rollback_deploy",
+        "p_success": 0.9607,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "rollback_deploy",
+        "p_success": 0.9607,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "rollback_deploy",
+          "restart_service",
+          "toggle_feature_flag",
+          "scale_out",
+          "db_failover",
+          "clear_cache",
+          "drain_node",
+          "raise_resource_limits"
+        ],
+        "T": 0.5913,
+        "verdict": "conflict",
+        "gate": "one_click",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v40",
+        "n_passed": 9,
+        "n_failed": 3
+      }
+    },
+    {
+      "id": "INC-0282",
+      "timestamp": "2026-08-17T19:21:00Z",
+      "_signature": "pod_restarts",
+      "baseline": {
+        "fix": "rollback_deploy",
+        "p_success": 0.2919,
+        "is_best": false,
+        "regret": 0.5581,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "restart_service",
+          "rollback_deploy",
+          "toggle_feature_flag",
+          "scale_out",
+          "raise_resource_limits",
+          "clear_cache",
+          "drain_node",
+          "db_failover"
+        ],
+        "T": 0.6332,
+        "verdict": "conflict",
+        "gate": "one_click",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v41",
+        "n_passed": 7,
+        "n_failed": 3
+      }
+    },
+    {
+      "id": "INC-0283",
+      "timestamp": "2026-08-18T19:34:00Z",
+      "_signature": "pod_restarts",
+      "baseline": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "restart_service",
+          "rollback_deploy",
+          "toggle_feature_flag",
+          "raise_resource_limits",
+          "drain_node",
+          "db_failover",
+          "scale_out",
+          "clear_cache"
+        ],
+        "T": 0.7998,
+        "verdict": "agree_trust",
+        "gate": "auto_run",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v42",
+        "n_passed": 11,
+        "n_failed": 2
+      }
+    },
+    {
+      "id": "INC-0284",
+      "timestamp": "2026-08-19T17:11:00Z",
+      "_signature": "latency_degradation",
+      "baseline": {
+        "fix": "rollback_deploy",
+        "p_success": 0.1548,
+        "is_best": false,
+        "regret": 0.3952,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "db_failover",
+        "p_success": 0.1,
+        "is_best": false,
+        "regret": 0.45,
+        "ranked": [
+          "db_failover",
+          "restart_service",
+          "clear_cache",
+          "raise_resource_limits",
+          "scale_out",
+          "drain_node",
+          "toggle_feature_flag",
+          "rollback_deploy"
+        ],
+        "T": 0.5756,
+        "verdict": "no_evidence",
+        "gate": "two_person",
+        "sampled_outcome": "failed",
+        "sampled_verified": true,
+        "weights_version": "v43",
+        "n_passed": 1,
+        "n_failed": 0
+      }
+    },
+    {
+      "id": "INC-0285",
+      "timestamp": "2026-08-19T20:52:00Z",
+      "_signature": "pod_restarts",
+      "baseline": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "restart_service",
+          "rollback_deploy",
+          "toggle_feature_flag",
+          "raise_resource_limits",
+          "drain_node",
+          "db_failover",
+          "scale_out",
+          "clear_cache"
+        ],
+        "T": 0.7252,
+        "verdict": "conflict",
+        "gate": "one_click",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v44",
+        "n_passed": 11,
+        "n_failed": 3
+      }
+    },
+    {
+      "id": "INC-0286",
+      "timestamp": "2026-08-20T21:34:00Z",
+      "_signature": "error_rate_5xx",
+      "baseline": {
+        "fix": "toggle_feature_flag",
+        "p_success": 0.1,
+        "is_best": false,
+        "regret": 0.6,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "toggle_feature_flag",
+        "p_success": 0.1,
+        "is_best": false,
+        "regret": 0.6,
+        "ranked": [
+          "toggle_feature_flag",
+          "raise_resource_limits",
+          "db_failover",
+          "scale_out",
+          "drain_node",
+          "clear_cache",
+          "restart_service",
+          "rollback_deploy"
+        ],
+        "T": 0.5618,
+        "verdict": "conflict",
+        "gate": "one_click",
+        "sampled_outcome": "failed",
+        "sampled_verified": true,
+        "weights_version": "v45",
+        "n_passed": 5,
+        "n_failed": 3
+      }
+    },
+    {
+      "id": "INC-0287",
+      "timestamp": "2026-08-20T22:12:00Z",
+      "_signature": "mem_pressure_oom",
+      "baseline": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "restart_service",
+          "scale_out",
+          "toggle_feature_flag",
+          "raise_resource_limits",
+          "clear_cache",
+          "rollback_deploy",
+          "db_failover",
+          "drain_node"
+        ],
+        "T": 0.738,
+        "verdict": "conflict",
+        "gate": "one_click",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v46",
+        "n_passed": 17,
+        "n_failed": 6
+      }
+    },
+    {
+      "id": "INC-0288",
+      "timestamp": "2026-08-21T12:09:00Z",
+      "_signature": "error_rate_5xx",
+      "baseline": {
+        "fix": "toggle_feature_flag",
+        "p_success": 0.8697,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "raise_resource_limits",
+        "p_success": 0.05,
+        "is_best": false,
+        "regret": 0.8197,
+        "ranked": [
+          "raise_resource_limits",
+          "toggle_feature_flag",
+          "drain_node",
+          "clear_cache",
+          "scale_out",
+          "rollback_deploy",
+          "db_failover",
+          "restart_service"
+        ],
+        "T": 0.5745,
+        "verdict": "no_evidence",
+        "gate": "escalate_ic",
+        "sampled_outcome": "failed",
+        "sampled_verified": true,
+        "weights_version": "v47",
+        "n_passed": 1,
+        "n_failed": 0
+      }
+    },
+    {
+      "id": "INC-0289",
+      "timestamp": "2026-08-22T00:31:00Z",
+      "_signature": "pod_restarts",
+      "baseline": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "restart_service",
+          "toggle_feature_flag",
+          "raise_resource_limits",
+          "db_failover",
+          "scale_out",
+          "rollback_deploy",
+          "clear_cache",
+          "drain_node"
+        ],
+        "T": 0.7502,
+        "verdict": "conflict",
+        "gate": "one_click",
+        "sampled_outcome": "failed",
+        "sampled_verified": true,
+        "weights_version": "v48",
+        "n_passed": 13,
+        "n_failed": 3
+      }
+    },
+    {
+      "id": "INC-0290",
+      "timestamp": "2026-08-22T05:21:00Z",
+      "_signature": "cpu_throttling",
+      "baseline": {
+        "fix": "rollback_deploy",
+        "p_success": 0.0087,
+        "is_best": false,
+        "regret": 0.8413,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "scale_out",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "scale_out",
+          "drain_node",
+          "clear_cache",
+          "restart_service",
+          "toggle_feature_flag",
+          "raise_resource_limits",
+          "rollback_deploy",
+          "db_failover"
+        ],
+        "T": 0.7143,
+        "verdict": "agree_trust",
+        "gate": "auto_run",
+        "sampled_outcome": "failed",
+        "sampled_verified": true,
+        "weights_version": "v49",
+        "n_passed": 7,
+        "n_failed": 1
+      }
+    },
+    {
+      "id": "INC-0291",
+      "timestamp": "2026-08-23T16:37:00Z",
+      "_signature": "mem_pressure_oom",
+      "baseline": {
+        "fix": "rollback_deploy",
+        "p_success": 0.2919,
+        "is_best": false,
+        "regret": 0.5581,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "restart_service",
+          "rollback_deploy",
+          "clear_cache",
+          "scale_out",
+          "db_failover",
+          "raise_resource_limits",
+          "drain_node",
+          "toggle_feature_flag"
+        ],
+        "T": 0.628,
+        "verdict": "conflict",
+        "gate": "one_click",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v50",
+        "n_passed": 10,
+        "n_failed": 5
+      }
+    },
+    {
+      "id": "INC-0292",
+      "timestamp": "2026-08-23T22:15:00Z",
+      "_signature": "cache_miss_storm",
+      "baseline": {
+        "fix": "clear_cache",
+        "p_success": 0.0735,
+        "is_best": false,
+        "regret": 0.797,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "raise_resource_limits",
+        "p_success": 0.2,
+        "is_best": false,
+        "regret": 0.6705,
+        "ranked": [
+          "raise_resource_limits",
+          "drain_node",
+          "rollback_deploy",
+          "db_failover",
+          "scale_out",
+          "toggle_feature_flag",
+          "restart_service",
+          "clear_cache"
+        ],
+        "T": 0.5,
+        "verdict": "no_evidence",
+        "gate": "escalate_ic",
+        "sampled_outcome": "failed",
+        "sampled_verified": true,
+        "weights_version": "v51",
+        "n_passed": 0,
+        "n_failed": 0
+      }
+    },
+    {
+      "id": "INC-0293",
+      "timestamp": "2026-08-24T23:42:00Z",
+      "_signature": "mem_pressure_oom",
+      "baseline": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "restart_service",
+          "toggle_feature_flag",
+          "clear_cache",
+          "db_failover",
+          "rollback_deploy",
+          "raise_resource_limits",
+          "scale_out",
+          "drain_node"
+        ],
+        "T": 0.6806,
+        "verdict": "conflict",
+        "gate": "one_click",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v52",
+        "n_passed": 17,
+        "n_failed": 7
+      }
+    },
+    {
+      "id": "INC-0294",
+      "timestamp": "2026-08-25T02:42:00Z",
+      "_signature": "error_rate_5xx",
+      "baseline": {
+        "fix": "toggle_feature_flag",
+        "p_success": 0.8697,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "toggle_feature_flag",
+        "p_success": 0.8697,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "toggle_feature_flag",
+          "rollback_deploy",
+          "clear_cache",
+          "raise_resource_limits",
+          "db_failover",
+          "scale_out",
+          "drain_node",
+          "restart_service"
+        ],
+        "T": 0.6782,
+        "verdict": "agree_trust",
+        "gate": "one_click",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v53",
+        "n_passed": 6,
+        "n_failed": 2
+      }
+    },
+    {
+      "id": "INC-0295",
+      "timestamp": "2026-08-25T19:05:00Z",
+      "_signature": "mem_pressure_oom",
+      "baseline": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "restart_service",
+        "p_success": 0.85,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "restart_service",
+          "rollback_deploy",
+          "scale_out",
+          "clear_cache",
+          "toggle_feature_flag",
+          "db_failover",
+          "drain_node",
+          "raise_resource_limits"
+        ],
+        "T": 0.7305,
+        "verdict": "conflict",
+        "gate": "one_click",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v54",
+        "n_passed": 12,
+        "n_failed": 3
+      }
+    },
+    {
+      "id": "INC-0296",
+      "timestamp": "2026-08-27T02:39:00Z",
+      "_signature": "cpu_throttling",
+      "baseline": {
+        "fix": "scale_out",
+        "p_success": 0.8705,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "scale_out",
+        "p_success": 0.8705,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "scale_out",
+          "drain_node",
+          "restart_service",
+          "raise_resource_limits",
+          "db_failover",
+          "rollback_deploy",
+          "toggle_feature_flag",
+          "clear_cache"
+        ],
+        "T": 0.6577,
+        "verdict": "conflict",
+        "gate": "one_click",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v55",
+        "n_passed": 10,
+        "n_failed": 5
+      }
+    },
+    {
+      "id": "INC-0297",
+      "timestamp": "2026-08-27T09:53:00Z",
+      "_signature": "error_rate_5xx",
+      "baseline": {
+        "fix": "rollback_deploy",
+        "p_success": 0.6,
+        "is_best": false,
+        "regret": 0.3127,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "toggle_feature_flag",
+        "p_success": 0.9127,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "toggle_feature_flag",
+          "rollback_deploy",
+          "drain_node",
+          "scale_out",
+          "clear_cache",
+          "raise_resource_limits",
+          "restart_service",
+          "db_failover"
+        ],
+        "T": 0.6005,
+        "verdict": "agree_trust",
+        "gate": "one_click",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v56",
+        "n_passed": 4,
+        "n_failed": 2
+      }
+    },
+    {
+      "id": "INC-0298",
+      "timestamp": "2026-08-28T23:30:00Z",
+      "_signature": "timeout_upstream",
+      "baseline": {
+        "fix": "restart_service",
+        "p_success": 0.15,
+        "is_best": false,
+        "regret": 0.4,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "drain_node",
+        "p_success": 0.55,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "drain_node",
+          "rollback_deploy",
+          "db_failover",
+          "toggle_feature_flag",
+          "raise_resource_limits",
+          "scale_out",
+          "clear_cache",
+          "restart_service"
+        ],
+        "T": 0.5853,
+        "verdict": "agree_trust",
+        "gate": "escalate_ic",
+        "sampled_outcome": "failed",
+        "sampled_verified": true,
+        "weights_version": "v57",
+        "n_passed": 6,
+        "n_failed": 2
+      }
+    },
+    {
+      "id": "INC-0299",
+      "timestamp": "2026-08-30T04:14:00Z",
+      "_signature": "mem_pressure_oom",
+      "baseline": {
+        "fix": "rollback_deploy",
+        "p_success": 0.9607,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "rollback_deploy",
+        "p_success": 0.9607,
+        "is_best": true,
+        "regret": 0.0,
+        "ranked": [
+          "rollback_deploy",
+          "scale_out",
+          "db_failover",
+          "restart_service",
+          "toggle_feature_flag",
+          "clear_cache",
+          "drain_node",
+          "raise_resource_limits"
+        ],
+        "T": 0.5954,
+        "verdict": "conflict",
+        "gate": "escalate_ic",
+        "sampled_outcome": "resolved",
+        "sampled_verified": true,
+        "weights_version": "v58",
+        "n_passed": 8,
+        "n_failed": 3
+      }
+    },
+    {
+      "id": "INC-0300",
+      "timestamp": "2026-08-30T09:49:00Z",
+      "_signature": "startup_failure",
+      "baseline": {
+        "fix": "rollback_deploy",
+        "p_success": 0.7121,
+        "is_best": true,
+        "regret": 0.0,
+        "used_llm": false
+      },
+      "trustlens": {
+        "fix": "toggle_feature_flag",
+        "p_success": 0.7,
+        "is_best": false,
+        "regret": 0.0121,
+        "ranked": [
+          "toggle_feature_flag",
+          "clear_cache",
+          "raise_resource_limits",
+          "scale_out",
+          "restart_service",
+          "rollback_deploy",
+          "drain_node",
+          "db_failover"
+        ],
+        "T": 0.6116,
+        "verdict": "agree_trust",
+        "gate": "one_click",
+        "sampled_outcome": "recurred",
+        "sampled_verified": true,
+        "weights_version": "v59",
+        "n_passed": 4,
+        "n_failed": 2
+      }
+    }
+  ],
+  "aggregates": {
+    "rolling_p_success": {
+      "window": 10,
+      "baseline": [
+        0.15,
+        0.5445,
+        0.563,
+        0.4406,
+        0.3685,
+        0.4487,
+        0.5089,
+        0.5515,
+        0.597,
+        0.6223,
+        0.6365,
+        0.5626,
+        0.5099,
+        0.5176,
+        0.5246,
+        0.4596,
+        0.4572,
+        0.4434,
+        0.3623,
+        0.3618,
+        0.3406,
+        0.4167,
+        0.4893,
+        0.4817,
+        0.5071,
+        0.5584,
+        0.5699,
+        0.5837,
+        0.576,
+        0.5627,
+        0.5697,
+        0.5586,
+        0.5747,
+        0.5754,
+        0.6199,
+        0.6325,
+        0.6203,
+        0.6292,
+        0.7069,
+        0.6506,
+        0.7317,
+        0.6759,
+        0.6648,
+        0.6723,
+        0.6723,
+        0.5985,
+        0.5996,
+        0.5927,
+        0.5927,
+        0.5786,
+        0.5117,
+        0.4899,
+        0.4899,
+        0.5614,
+        0.5614,
+        0.6384,
+        0.6134,
+        0.5414,
+        0.5525,
+        0.6228
+      ],
+      "trustlens": [
+        0.15,
+        0.5445,
+        0.563,
+        0.6399,
+        0.5319,
+        0.4453,
+        0.5059,
+        0.5489,
+        0.5268,
+        0.5591,
+        0.6291,
+        0.5383,
+        0.5652,
+        0.4982,
+        0.4932,
+        0.5769,
+        0.5745,
+        0.4915,
+        0.4715,
+        0.471,
+        0.473,
+        0.5661,
+        0.5591,
+        0.5441,
+        0.5741,
+        0.5591,
+        0.5096,
+        0.5926,
+        0.6645,
+        0.65,
+        0.588,
+        0.577,
+        0.593,
+        0.675,
+        0.725,
+        0.7389,
+        0.7877,
+        0.7966,
+        0.7946,
+        0.7396,
+        0.8107,
+        0.8107,
+        0.7996,
+        0.7227,
+        0.7227,
+        0.6488,
+        0.65,
+        0.5611,
+        0.5611,
+        0.6311,
+        0.62,
+        0.555,
+        0.555,
+        0.632,
+        0.632,
+        0.709,
+        0.7153,
+        0.7653,
+        0.7764,
+        0.7614
+      ]
+    },
+    "cumulative_p_success": {
+      "baseline": [
+        0.15,
+        0.5445,
+        0.563,
+        0.4406,
+        0.3685,
+        0.4487,
+        0.5089,
+        0.5515,
+        0.597,
+        0.6223,
+        0.5922,
+        0.5595,
+        0.5222,
+        0.4956,
+        0.4725,
+        0.4555,
+        0.4784,
+        0.4914,
+        0.4735,
+        0.4921,
+        0.4724,
+        0.4946,
+        0.5079,
+        0.4898,
+        0.4864,
+        0.4951,
+        0.5123,
+        0.5244,
+        0.5088,
+        0.5156,
+        0.5038,
+        0.5146,
+        0.5281,
+        0.515,
+        0.5245,
+        0.5333,
+        0.5415,
+        0.552,
+        0.5596,
+        0.5494,
+        0.5594,
+        0.553,
+        0.5599,
+        0.5507,
+        0.5574,
+        0.5474,
+        0.5539,
+        0.5605,
+        0.5664,
+        0.5552,
+        0.55,
+        0.5409,
+        0.5467,
+        0.5527,
+        0.5581,
+        0.5637,
+        0.5643,
+        0.5572,
+        0.564,
+        0.5665
+      ],
+      "trustlens": [
+        0.15,
+        0.5445,
+        0.563,
+        0.6399,
+        0.5319,
+        0.4453,
+        0.5059,
+        0.5489,
+        0.5268,
+        0.5591,
+        0.5856,
+        0.5393,
+        0.5647,
+        0.5387,
+        0.5061,
+        0.5276,
+        0.5463,
+        0.517,
+        0.4977,
+        0.5151,
+        0.532,
+        0.5515,
+        0.5623,
+        0.5409,
+        0.5333,
+        0.5397,
+        0.5327,
+        0.544,
+        0.5552,
+        0.5601,
+        0.5501,
+        0.5594,
+        0.5716,
+        0.5804,
+        0.5881,
+        0.595,
+        0.6016,
+        0.6105,
+        0.6166,
+        0.605,
+        0.6136,
+        0.6193,
+        0.6246,
+        0.6127,
+        0.618,
+        0.6067,
+        0.6119,
+        0.6002,
+        0.6053,
+        0.6102,
+        0.6149,
+        0.6069,
+        0.6115,
+        0.6163,
+        0.6205,
+        0.625,
+        0.63,
+        0.6287,
+        0.6343,
+        0.6354
+      ]
+    },
+    "best_fix_rate": {
+      "baseline": 0.5667,
+      "trustlens": 0.6333
+    },
+    "mean_regret": {
+      "baseline": 0.265,
+      "trustlens": 0.1961
+    },
+    "mean_p_success": {
+      "baseline": 0.5665,
+      "trustlens": 0.6354
+    },
+    "escalation": {
+      "rate": 0.5333,
+      "n_escalated": 32,
+      "accuracy_on_non_escalated": 0.5357
+    },
+    "calibration": [
+      {
+        "bin": "0.4-0.6",
+        "n": 16,
+        "mean_predicted": 0.5652,
+        "actual_rate": 0.3125
+      },
+      {
+        "bin": "0.6-0.8",
+        "n": 43,
+        "mean_predicted": 0.6934,
+        "actual_rate": 0.5814
+      },
+      {
+        "bin": "0.8-1.0",
+        "n": 1,
+        "mean_predicted": 0.8099,
+        "actual_rate": 0.0
+      }
+    ],
+    "brier": 0.271,
+    "auc": 0.5833,
+    "lookalike_subset": {
+      "n": 13,
+      "baseline_best_fix_rate": 0.7692,
+      "trustlens_best_fix_rate": 1.0,
+      "trustlens_conflict_rate": 0.8462
+    },
+    "weight_recovery": {
+      "correlation": 0.856,
+      "n_pairs": 8,
+      "pairs": [
+        {
+          "factor": "recent_deploy",
+          "fix": "restart_service",
+          "true": -1.2,
+          "learned": -1.586
+        },
+        {
+          "factor": "recent_deploy",
+          "fix": "rollback_deploy",
+          "true": 1.0,
+          "learned": 0.832
+        },
+        {
+          "factor": "traffic_spike",
+          "fix": "scale_out",
+          "true": 1.0,
+          "learned": 0.982
+        },
+        {
+          "factor": "resource_limit_low",
+          "fix": "raise_resource_limits",
+          "true": 1.2,
+          "learned": 1.475
+        },
+        {
+          "factor": "connection_pool_low",
+          "fix": "raise_resource_limits",
+          "true": 0.8,
+          "learned": 0.862
+        },
+        {
+          "factor": "cache_cold",
+          "fix": "clear_cache",
+          "true": -0.8,
+          "learned": 0.333
+        },
+        {
+          "factor": "dependency_degraded",
+          "fix": "toggle_feature_flag",
+          "true": 0.8,
+          "learned": 1.054
+        },
+        {
+          "factor": "disk_usage_high",
+          "fix": "drain_node",
+          "true": 0.6,
+          "learned": 0.167
+        }
+      ]
+    },
+    "learning_curve": [
+      {
+        "n_train": 50,
+        "mean_p_success": 0.582,
+        "n_scored": 30
+      },
+      {
+        "n_train": 100,
+        "mean_p_success": 0.5447,
+        "n_scored": 30
+      },
+      {
+        "n_train": 150,
+        "mean_p_success": 0.5952,
+        "n_scored": 30
+      },
+      {
+        "n_train": 200,
+        "mean_p_success": 0.5522,
+        "n_scored": 30
+      },
+      {
+        "n_train": 240,
+        "mean_p_success": 0.5917,
+        "n_scored": 30
+      }
+    ]
+  }
+}

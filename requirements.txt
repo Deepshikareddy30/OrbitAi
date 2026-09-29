@@ -1,0 +1,12 @@
+numpy
+pyyaml
+hindsight-client
+scikit-learn
+fastapi
+uvicorn[standard]
+pytest
+python-dotenv
+httpx
+langgraph
+langchain-core
+langchain-openai

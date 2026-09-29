@@ -1,0 +1,124 @@
+{
+  "fixes": [
+    "restart_service",
+    "scale_out",
+    "toggle_feature_flag",
+    "clear_cache",
+    "rollback_deploy",
+    "raise_resource_limits",
+    "drain_node",
+    "db_failover"
+  ],
+  "matrix": {
+    "cpu_saturation": {
+      "restart_service": 0.3,
+      "scale_out": 0.85,
+      "toggle_feature_flag": 0.1,
+      "clear_cache": 0.1,
+      "rollback_deploy": 0.15,
+      "raise_resource_limits": 0.6,
+      "drain_node": 0.3,
+      "db_failover": 0.05
+    },
+    "memory_leak": {
+      "restart_service": 0.85,
+      "scale_out": 0.3,
+      "toggle_feature_flag": 0.05,
+      "clear_cache": 0.05,
+      "rollback_deploy": 0.2,
+      "raise_resource_limits": 0.6,
+      "drain_node": 0.35,
+      "db_failover": 0.03
+    },
+    "disk_full": {
+      "restart_service": 0.15,
+      "scale_out": 0.1,
+      "toggle_feature_flag": 0.03,
+      "clear_cache": 0.15,
+      "rollback_deploy": 0.05,
+      "raise_resource_limits": 0.3,
+      "drain_node": 0.75,
+      "db_failover": 0.2
+    },
+    "network_latency": {
+      "restart_service": 0.15,
+      "scale_out": 0.25,
+      "toggle_feature_flag": 0.2,
+      "clear_cache": 0.05,
+      "rollback_deploy": 0.1,
+      "raise_resource_limits": 0.05,
+      "drain_node": 0.55,
+      "db_failover": 0.1
+    },
+    "packet_loss": {
+      "restart_service": 0.1,
+      "scale_out": 0.15,
+      "toggle_feature_flag": 0.1,
+      "clear_cache": 0.03,
+      "rollback_deploy": 0.05,
+      "raise_resource_limits": 0.03,
+      "drain_node": 0.7,
+      "db_failover": 0.05
+    },
+    "connection_exhaustion": {
+      "restart_service": 0.45,
+      "scale_out": 0.4,
+      "toggle_feature_flag": 0.1,
+      "clear_cache": 0.05,
+      "rollback_deploy": 0.1,
+      "raise_resource_limits": 0.7,
+      "drain_node": 0.1,
+      "db_failover": 0.15
+    },
+    "bad_deploy": {
+      "restart_service": 0.15,
+      "scale_out": 0.1,
+      "toggle_feature_flag": 0.35,
+      "clear_cache": 0.05,
+      "rollback_deploy": 0.9,
+      "raise_resource_limits": 0.1,
+      "drain_node": 0.05,
+      "db_failover": 0.02
+    },
+    "config_error": {
+      "restart_service": 0.1,
+      "scale_out": 0.05,
+      "toggle_feature_flag": 0.7,
+      "clear_cache": 0.05,
+      "rollback_deploy": 0.6,
+      "raise_resource_limits": 0.1,
+      "drain_node": 0.03,
+      "db_failover": 0.02
+    },
+    "db_saturation": {
+      "restart_service": 0.1,
+      "scale_out": 0.35,
+      "toggle_feature_flag": 0.15,
+      "clear_cache": 0.25,
+      "rollback_deploy": 0.05,
+      "raise_resource_limits": 0.3,
+      "drain_node": 0.05,
+      "db_failover": 0.8
+    },
+    "dependency_outage": {
+      "restart_service": 0.15,
+      "scale_out": 0.1,
+      "toggle_feature_flag": 0.75,
+      "clear_cache": 0.1,
+      "rollback_deploy": 0.05,
+      "raise_resource_limits": 0.05,
+      "drain_node": 0.05,
+      "db_failover": 0.05
+    },
+    "cache_stampede": {
+      "restart_service": 0.2,
+      "scale_out": 0.6,
+      "toggle_feature_flag": 0.3,
+      "clear_cache": 0.15,
+      "rollback_deploy": 0.05,
+      "raise_resource_limits": 0.2,
+      "drain_node": 0.05,
+      "db_failover": 0.05
+    }
+  }
+}

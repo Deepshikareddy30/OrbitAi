@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+node_modules/
+dist/
+build/
+.env
+.env.local
+*.log
+eval/baseline_cache.json
+.pytest_cache/
+weights/
+eval/run_weights/
+audit_log.jsonl
+

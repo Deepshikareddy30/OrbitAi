@@ -1,0 +1,411 @@
+{
+  "DEMO-A": {
+    "scenario": "Close match to many past passes of one fix, no similar failures",
+    "expected_verdict": "agree_trust",
+    "focus_fix": "restart_service",
+    "expected_top_fix": "restart_service",
+    "expected_gate": "auto_run",
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "best_fix": "restart_service",
+    "p_success": {
+      "restart_service": 0.85,
+      "scale_out": 0.3,
+      "toggle_feature_flag": 0.05,
+      "clear_cache": 0.05,
+      "rollback_deploy": 0.0123,
+      "raise_resource_limits": 0.6,
+      "drain_node": 0.35,
+      "db_failover": 0.03
+    },
+    "breakdown": {
+      "restart_service": {
+        "base_logit": 1.7346,
+        "contributions": {},
+        "p_success": 0.85
+      },
+      "scale_out": {
+        "base_logit": -0.8473,
+        "contributions": {},
+        "p_success": 0.3
+      },
+      "toggle_feature_flag": {
+        "base_logit": -2.9444,
+        "contributions": {},
+        "p_success": 0.05
+      },
+      "clear_cache": {
+        "base_logit": -2.9444,
+        "contributions": {},
+        "p_success": 0.05
+      },
+      "rollback_deploy": {
+        "base_logit": -1.3863,
+        "contributions": {
+          "no_recent_change": -3.0
+        },
+        "p_success": 0.0123
+      },
+      "raise_resource_limits": {
+        "base_logit": 0.4055,
+        "contributions": {},
+        "p_success": 0.6
+      },
+      "drain_node": {
+        "base_logit": -0.619,
+        "contributions": {},
+        "p_success": 0.35
+      },
+      "db_failover": {
+        "base_logit": -3.4761,
+        "contributions": {},
+        "p_success": 0.03
+      }
+    }
+  },
+  "DEMO-B": {
+    "scenario": "Close match to past failures of the obvious fix",
+    "expected_verdict": "agree_dont_trust",
+    "focus_fix": "restart_service",
+    "expected_top_fix": "toggle_feature_flag",
+    "expected_gate": null,
+    "root_cause": "dependency_outage",
+    "true_factors": [
+      "dependency_degraded"
+    ],
+    "best_fix": "toggle_feature_flag",
+    "p_success": {
+      "restart_service": 0.0735,
+      "scale_out": 0.1,
+      "toggle_feature_flag": 0.8697,
+      "clear_cache": 0.1,
+      "rollback_deploy": 0.0026,
+      "raise_resource_limits": 0.05,
+      "drain_node": 0.05,
+      "db_failover": 0.05
+    },
+    "breakdown": {
+      "restart_service": {
+        "base_logit": -1.7346,
+        "contributions": {
+          "dependency_degraded": -0.8
+        },
+        "p_success": 0.0735
+      },
+      "scale_out": {
+        "base_logit": -2.1972,
+        "contributions": {},
+        "p_success": 0.1
+      },
+      "toggle_feature_flag": {
+        "base_logit": 1.0986,
+        "contributions": {
+          "dependency_degraded": 0.8
+        },
+        "p_success": 0.8697
+      },
+      "clear_cache": {
+        "base_logit": -2.1972,
+        "contributions": {},
+        "p_success": 0.1
+      },
+      "rollback_deploy": {
+        "base_logit": -2.9444,
+        "contributions": {
+          "no_recent_change": -3.0
+        },
+        "p_success": 0.0026
+      },
+      "raise_resource_limits": {
+        "base_logit": -2.9444,
+        "contributions": {},
+        "p_success": 0.05
+      },
+      "drain_node": {
+        "base_logit": -2.9444,
+        "contributions": {},
+        "p_success": 0.05
+      },
+      "db_failover": {
+        "base_logit": -2.9444,
+        "contributions": {},
+        "p_success": 0.05
+      }
+    }
+  },
+  "DEMO-C": {
+    "scenario": "Look-alike trap: memory-leak-looking symptoms, but a deploy just before",
+    "expected_verdict": "conflict",
+    "focus_fix": "restart_service",
+    "expected_top_fix": null,
+    "expected_gate": "human_review",
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy",
+      "version_upgrade"
+    ],
+    "best_fix": "rollback_deploy",
+    "p_success": {
+      "restart_service": 0.0505,
+      "scale_out": 0.1,
+      "toggle_feature_flag": 0.35,
+      "clear_cache": 0.05,
+      "rollback_deploy": 0.9607,
+      "raise_resource_limits": 0.1,
+      "drain_node": 0.05,
+      "db_failover": 0.02
+    },
+    "breakdown": {
+      "restart_service": {
+        "base_logit": -1.7346,
+        "contributions": {
+          "recent_deploy": -1.2
+        },
+        "p_success": 0.0505
+      },
+      "scale_out": {
+        "base_logit": -2.1972,
+        "contributions": {},
+        "p_success": 0.1
+      },
+      "toggle_feature_flag": {
+        "base_logit": -0.619,
+        "contributions": {},
+        "p_success": 0.35
+      },
+      "clear_cache": {
+        "base_logit": -2.9444,
+        "contributions": {},
+        "p_success": 0.05
+      },
+      "rollback_deploy": {
+        "base_logit": 2.1972,
+        "contributions": {
+          "recent_deploy": 1.0
+        },
+        "p_success": 0.9607
+      },
+      "raise_resource_limits": {
+        "base_logit": -2.1972,
+        "contributions": {},
+        "p_success": 0.1
+      },
+      "drain_node": {
+        "base_logit": -2.9444,
+        "contributions": {},
+        "p_success": 0.05
+      },
+      "db_failover": {
+        "base_logit": -3.8918,
+        "contributions": {},
+        "p_success": 0.02
+      }
+    }
+  },
+  "DEMO-D": {
+    "scenario": "Novel: service and fault combination never present in training",
+    "expected_verdict": "no_evidence",
+    "focus_fix": null,
+    "expected_top_fix": null,
+    "expected_gate": "human_review",
+    "root_cause": "config_error",
+    "true_factors": [
+      "config_change"
+    ],
+    "best_fix": "rollback_deploy",
+    "p_success": {
+      "restart_service": 0.1,
+      "scale_out": 0.05,
+      "toggle_feature_flag": 0.7,
+      "clear_cache": 0.05,
+      "rollback_deploy": 0.7121,
+      "raise_resource_limits": 0.1,
+      "drain_node": 0.03,
+      "db_failover": 0.02
+    },
+    "breakdown": {
+      "restart_service": {
+        "base_logit": -2.1972,
+        "contributions": {},
+        "p_success": 0.1
+      },
+      "scale_out": {
+        "base_logit": -2.9444,
+        "contributions": {},
+        "p_success": 0.05
+      },
+      "toggle_feature_flag": {
+        "base_logit": 0.8473,
+        "contributions": {},
+        "p_success": 0.7
+      },
+      "clear_cache": {
+        "base_logit": -2.9444,
+        "contributions": {},
+        "p_success": 0.05
+      },
+      "rollback_deploy": {
+        "base_logit": 0.4055,
+        "contributions": {
+          "config_change": 0.5
+        },
+        "p_success": 0.7121
+      },
+      "raise_resource_limits": {
+        "base_logit": -2.1972,
+        "contributions": {},
+        "p_success": 0.1
+      },
+      "drain_node": {
+        "base_logit": -3.4761,
+        "contributions": {},
+        "p_success": 0.03
+      },
+      "db_failover": {
+        "base_logit": -3.8918,
+        "contributions": {},
+        "p_success": 0.02
+      }
+    }
+  },
+  "DEMO-E": {
+    "scenario": "Medium-risk fix with borderline trust",
+    "expected_verdict": null,
+    "focus_fix": "raise_resource_limits",
+    "expected_top_fix": "raise_resource_limits",
+    "expected_gate": "on_call_approval",
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low",
+      "traffic_spike"
+    ],
+    "best_fix": "raise_resource_limits",
+    "p_success": {
+      "restart_service": 0.4012,
+      "scale_out": 0.6444,
+      "toggle_feature_flag": 0.1,
+      "clear_cache": 0.05,
+      "rollback_deploy": 0.0055,
+      "raise_resource_limits": 0.8385,
+      "drain_node": 0.1,
+      "db_failover": 0.15
+    },
+    "breakdown": {
+      "restart_service": {
+        "base_logit": -0.2007,
+        "contributions": {
+          "connection_pool_low": 0.3,
+          "traffic_spike": -0.5
+        },
+        "p_success": 0.4012
+      },
+      "scale_out": {
+        "base_logit": -0.4055,
+        "contributions": {
+          "traffic_spike": 1.0
+        },
+        "p_success": 0.6444
+      },
+      "toggle_feature_flag": {
+        "base_logit": -2.1972,
+        "contributions": {},
+        "p_success": 0.1
+      },
+      "clear_cache": {
+        "base_logit": -2.9444,
+        "contributions": {},
+        "p_success": 0.05
+      },
+      "rollback_deploy": {
+        "base_logit": -2.1972,
+        "contributions": {
+          "no_recent_change": -3.0
+        },
+        "p_success": 0.0055
+      },
+      "raise_resource_limits": {
+        "base_logit": 0.8473,
+        "contributions": {
+          "connection_pool_low": 0.8
+        },
+        "p_success": 0.8385
+      },
+      "drain_node": {
+        "base_logit": -2.1972,
+        "contributions": {},
+        "p_success": 0.1
+      },
+      "db_failover": {
+        "base_logit": -1.7346,
+        "contributions": {},
+        "p_success": 0.15
+      }
+    }
+  },
+  "DEMO-FLAGSHIP": {
+    "scenario": "Flagship: 5xx errors + DB timeouts after a connection-pool config change, high risk -> Courtroom",
+    "expected_verdict": null,
+    "focus_fix": "rollback_deploy",
+    "expected_top_fix": "rollback_deploy",
+    "expected_gate": null,
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "config_change"
+    ],
+    "best_fix": "rollback_deploy",
+    "p_success": {
+      "restart_service": 0.15,
+      "scale_out": 0.1,
+      "toggle_feature_flag": 0.35,
+      "clear_cache": 0.05,
+      "rollback_deploy": 0.9369,
+      "raise_resource_limits": 0.1,
+      "drain_node": 0.05,
+      "db_failover": 0.02
+    },
+    "breakdown": {
+      "restart_service": {
+        "base_logit": -1.7346,
+        "contributions": {},
+        "p_success": 0.15
+      },
+      "scale_out": {
+        "base_logit": -2.1972,
+        "contributions": {},
+        "p_success": 0.1
+      },
+      "toggle_feature_flag": {
+        "base_logit": -0.619,
+        "contributions": {},
+        "p_success": 0.35
+      },
+      "clear_cache": {
+        "base_logit": -2.9444,
+        "contributions": {},
+        "p_success": 0.05
+      },
+      "rollback_deploy": {
+        "base_logit": 2.1972,
+        "contributions": {
+          "config_change": 0.5
+        },
+        "p_success": 0.9369
+      },
+      "raise_resource_limits": {
+        "base_logit": -2.1972,
+        "contributions": {},
+        "p_success": 0.1
+      },
+      "drain_node": {
+        "base_logit": -2.9444,
+        "contributions": {},
+        "p_success": 0.05
+      },
+      "db_failover": {
+        "base_logit": -3.8918,
+        "contributions": {},
+        "p_success": 0.02
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "fix": "restart_service",
+    "risk_tier": "low",
+    "reversible": "yes",
+    "typical_ttr_min": 5,
+    "description": "Rolling restart of the affected service's pods."
+  },
+  {
+    "fix": "scale_out",
+    "risk_tier": "low",
+    "reversible": "yes",
+    "typical_ttr_min": 8,
+    "description": "Add replicas / capacity to the affected service."
+  },
+  {
+    "fix": "toggle_feature_flag",
+    "risk_tier": "low",
+    "reversible": "yes",
+    "typical_ttr_min": 4,
+    "description": "Disable the feature path or dependency behind a flag."
+  },
+  {
+    "fix": "clear_cache",
+    "risk_tier": "low",
+    "reversible": "yes",
+    "typical_ttr_min": 6,
+    "description": "Flush and re-warm the relevant cache keys."
+  },
+  {
+    "fix": "rollback_deploy",
+    "risk_tier": "medium",
+    "reversible": "mostly",
+    "typical_ttr_min": 12,
+    "description": "Roll back the most recent deploy or config change."
+  },
+  {
+    "fix": "raise_resource_limits",
+    "risk_tier": "medium",
+    "reversible": "yes",
+    "typical_ttr_min": 15,
+    "description": "Raise memory/CPU limits or connection pool size."
+  },
+  {
+    "fix": "drain_node",
+    "risk_tier": "medium",
+    "reversible": "mostly",
+    "typical_ttr_min": 20,
+    "description": "Cordon and drain the unhealthy node(s)."
+  },
+  {
+    "fix": "db_failover",
+    "risk_tier": "high",
+    "reversible": "no",
+    "typical_ttr_min": 25,
+    "description": "Fail the primary database over to a replica."
+  }
+]

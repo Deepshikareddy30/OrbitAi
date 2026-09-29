@@ -1,0 +1,5517 @@
+{
+  "INC-0001": {
+    "root_cause": "network_latency",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0002": {
+    "root_cause": "cache_stampede",
+    "true_factors": [
+      "cache_cold"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": true
+      }
+    ]
+  },
+  "INC-0003": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0004": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy",
+      "version_upgrade"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0005": {
+    "root_cause": "dependency_outage",
+    "true_factors": [
+      "dependency_degraded"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0006": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0007": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0008": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0009": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0010": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0011": {
+    "root_cause": "db_saturation",
+    "true_factors": [
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0012": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy",
+      "version_upgrade"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0013": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low",
+      "recent_deploy"
+    ],
+    "attempts": [
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0014": {
+    "root_cause": "cpu_saturation",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0015": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0016": {
+    "root_cause": "config_error",
+    "true_factors": [
+      "config_change"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0017": {
+    "root_cause": "cpu_saturation",
+    "true_factors": [
+      "feature_flag_change",
+      "resource_limit_low",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0018": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "infra_change"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0019": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0020": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0021": {
+    "root_cause": "dependency_outage",
+    "true_factors": [
+      "dependency_degraded"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0022": {
+    "root_cause": "db_saturation",
+    "true_factors": [
+      "connection_pool_low",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "db_failover",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0023": {
+    "root_cause": "network_latency",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "drain_node",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0024": {
+    "root_cause": "db_saturation",
+    "true_factors": [
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "db_failover",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0025": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy",
+      "version_upgrade"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0026": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "config_change",
+      "connection_pool_low",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0027": {
+    "root_cause": "dependency_outage",
+    "true_factors": [
+      "dependency_degraded",
+      "recent_deploy"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0028": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy",
+      "version_upgrade"
+    ],
+    "attempts": [
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0029": {
+    "root_cause": "config_error",
+    "true_factors": [
+      "config_change"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0030": {
+    "root_cause": "dependency_outage",
+    "true_factors": [
+      "dependency_degraded"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0031": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy",
+      "version_upgrade"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0032": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "config_change",
+      "connection_pool_low",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0033": {
+    "root_cause": "network_latency",
+    "true_factors": [
+      "dependency_degraded",
+      "infra_change"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "drain_node",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0034": {
+    "root_cause": "db_saturation",
+    "true_factors": [
+      "connection_pool_low",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": true,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0035": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0036": {
+    "root_cause": "config_error",
+    "true_factors": [
+      "config_change"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "clear_cache",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0037": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0038": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0039": {
+    "root_cause": "db_saturation",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0040": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low"
+    ],
+    "attempts": [
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0041": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0042": {
+    "root_cause": "config_error",
+    "true_factors": [
+      "config_change"
+    ],
+    "attempts": [
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0043": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0044": {
+    "root_cause": "disk_full",
+    "true_factors": [
+      "disk_usage_high"
+    ],
+    "attempts": [
+      {
+        "fix": "drain_node",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0045": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0046": {
+    "root_cause": "cpu_saturation",
+    "true_factors": [
+      "resource_limit_low",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0047": {
+    "root_cause": "config_error",
+    "true_factors": [
+      "config_change"
+    ],
+    "attempts": [
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0048": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0049": {
+    "root_cause": "cache_stampede",
+    "true_factors": [
+      "cache_cold",
+      "config_change",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0050": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy",
+      "version_upgrade"
+    ],
+    "attempts": [
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0051": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0052": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0053": {
+    "root_cause": "config_error",
+    "true_factors": [
+      "config_change"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0054": {
+    "root_cause": "cpu_saturation",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0055": {
+    "root_cause": "db_saturation",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0056": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy",
+      "version_upgrade"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0057": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0058": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low"
+    ],
+    "attempts": [
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0059": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0060": {
+    "root_cause": "cpu_saturation",
+    "true_factors": [
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0061": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": true,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0062": {
+    "root_cause": "config_error",
+    "true_factors": [
+      "config_change"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0063": {
+    "root_cause": "db_saturation",
+    "true_factors": [
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "db_failover",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0064": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0065": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0066": {
+    "root_cause": "cache_stampede",
+    "true_factors": [
+      "cache_cold",
+      "recent_deploy",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0067": {
+    "root_cause": "config_error",
+    "true_factors": [
+      "config_change"
+    ],
+    "attempts": [
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0068": {
+    "root_cause": "dependency_outage",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0069": {
+    "root_cause": "config_error",
+    "true_factors": [
+      "feature_flag_change"
+    ],
+    "attempts": [
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0070": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0071": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0072": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0073": {
+    "root_cause": "network_latency",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "drain_node",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0074": {
+    "root_cause": "dependency_outage",
+    "true_factors": [
+      "dependency_degraded"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "clear_cache",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0075": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0076": {
+    "root_cause": "network_latency",
+    "true_factors": [
+      "dependency_degraded"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0077": {
+    "root_cause": "cpu_saturation",
+    "true_factors": [
+      "resource_limit_low",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0078": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0079": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy",
+      "version_upgrade"
+    ],
+    "attempts": [
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0080": {
+    "root_cause": "cpu_saturation",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0081": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0082": {
+    "root_cause": "cache_stampede",
+    "true_factors": [
+      "cache_cold"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0083": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0084": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy",
+      "version_upgrade"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "clear_cache",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0085": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low"
+    ],
+    "attempts": [
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0086": {
+    "root_cause": "cache_stampede",
+    "true_factors": [
+      "cache_cold",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0087": {
+    "root_cause": "network_latency",
+    "true_factors": [
+      "infra_change",
+      "recent_deploy"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0088": {
+    "root_cause": "network_latency",
+    "true_factors": [
+      "dependency_degraded"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0089": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy",
+      "version_upgrade"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0090": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0091": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy",
+      "version_upgrade"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0092": {
+    "root_cause": "packet_loss",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "clear_cache",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0093": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0094": {
+    "root_cause": "network_latency",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0095": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low",
+      "feature_flag_change"
+    ],
+    "attempts": [
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0096": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0097": {
+    "root_cause": "disk_full",
+    "true_factors": [
+      "disk_usage_high"
+    ],
+    "attempts": [
+      {
+        "fix": "drain_node",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0098": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0099": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0100": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0101": {
+    "root_cause": "dependency_outage",
+    "true_factors": [
+      "config_change",
+      "dependency_degraded"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0102": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy",
+      "version_upgrade"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0103": {
+    "root_cause": "disk_full",
+    "true_factors": [
+      "disk_usage_high"
+    ],
+    "attempts": [
+      {
+        "fix": "drain_node",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0104": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0105": {
+    "root_cause": "network_latency",
+    "true_factors": [
+      "dependency_degraded",
+      "infra_change"
+    ],
+    "attempts": [
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": true
+      }
+    ]
+  },
+  "INC-0106": {
+    "root_cause": "cpu_saturation",
+    "true_factors": [
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0107": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0108": {
+    "root_cause": "packet_loss",
+    "true_factors": [
+      "infra_change"
+    ],
+    "attempts": [
+      {
+        "fix": "drain_node",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0109": {
+    "root_cause": "disk_full",
+    "true_factors": [
+      "disk_usage_high"
+    ],
+    "attempts": [
+      {
+        "fix": "drain_node",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0110": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0111": {
+    "root_cause": "cpu_saturation",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0112": {
+    "root_cause": "dependency_outage",
+    "true_factors": [
+      "dependency_degraded"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0113": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low"
+    ],
+    "attempts": [
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0114": {
+    "root_cause": "cpu_saturation",
+    "true_factors": [
+      "resource_limit_low",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "clear_cache",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0115": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0116": {
+    "root_cause": "db_saturation",
+    "true_factors": [
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0117": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0118": {
+    "root_cause": "db_saturation",
+    "true_factors": [
+      "connection_pool_low",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "db_failover",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0119": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "clear_cache",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0120": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0121": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "infra_change",
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0122": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0123": {
+    "root_cause": "cache_stampede",
+    "true_factors": [
+      "cache_cold",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "clear_cache",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0124": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0125": {
+    "root_cause": "disk_full",
+    "true_factors": [
+      "disk_usage_high"
+    ],
+    "attempts": [
+      {
+        "fix": "drain_node",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0126": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy",
+      "version_upgrade"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0127": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0128": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0129": {
+    "root_cause": "cache_stampede",
+    "true_factors": [
+      "cache_cold",
+      "infra_change",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "clear_cache",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0130": {
+    "root_cause": "db_saturation",
+    "true_factors": [
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "db_failover",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0131": {
+    "root_cause": "dependency_outage",
+    "true_factors": [
+      "dependency_degraded"
+    ],
+    "attempts": [
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0132": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0133": {
+    "root_cause": "db_saturation",
+    "true_factors": [
+      "connection_pool_low",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "db_failover",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0134": {
+    "root_cause": "cpu_saturation",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0135": {
+    "root_cause": "config_error",
+    "true_factors": [
+      "feature_flag_change"
+    ],
+    "attempts": [
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0136": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0137": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy",
+      "version_upgrade"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": true,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0138": {
+    "root_cause": "db_saturation",
+    "true_factors": [
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "db_failover",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0139": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "clear_cache",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0140": {
+    "root_cause": "db_saturation",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "db_failover",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0141": {
+    "root_cause": "disk_full",
+    "true_factors": [
+      "config_change",
+      "disk_usage_high"
+    ],
+    "attempts": [
+      {
+        "fix": "drain_node",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0142": {
+    "root_cause": "cache_stampede",
+    "true_factors": [
+      "cache_cold"
+    ],
+    "attempts": [
+      {
+        "fix": "drain_node",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": false,
+        "self_healed": true,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0143": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": true
+      }
+    ]
+  },
+  "INC-0144": {
+    "root_cause": "dependency_outage",
+    "true_factors": [
+      "dependency_degraded"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0145": {
+    "root_cause": "cache_stampede",
+    "true_factors": [
+      "cache_cold",
+      "feature_flag_change"
+    ],
+    "attempts": [
+      {
+        "fix": "clear_cache",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0146": {
+    "root_cause": "cpu_saturation",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0147": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0148": {
+    "root_cause": "network_latency",
+    "true_factors": [
+      "dependency_degraded"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0149": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy",
+      "version_upgrade"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0150": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy"
+    ],
+    "attempts": [
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0151": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0152": {
+    "root_cause": "cache_stampede",
+    "true_factors": [
+      "cache_cold"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0153": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low"
+    ],
+    "attempts": [
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0154": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0155": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0156": {
+    "root_cause": "disk_full",
+    "true_factors": [
+      "recent_deploy"
+    ],
+    "attempts": [
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0157": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0158": {
+    "root_cause": "db_saturation",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "db_failover",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0159": {
+    "root_cause": "cpu_saturation",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "drain_node",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": true
+      }
+    ]
+  },
+  "INC-0160": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0161": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy",
+      "version_upgrade"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0162": {
+    "root_cause": "config_error",
+    "true_factors": [
+      "feature_flag_change"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0163": {
+    "root_cause": "db_saturation",
+    "true_factors": [
+      "connection_pool_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "db_failover",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0164": {
+    "root_cause": "db_saturation",
+    "true_factors": [
+      "config_change"
+    ],
+    "attempts": [
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "db_failover",
+        "fix_worked": false,
+        "self_healed": true,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0165": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy",
+      "version_upgrade"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "drain_node",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0166": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy"
+    ],
+    "attempts": [
+      {
+        "fix": "clear_cache",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0167": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0168": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0169": {
+    "root_cause": "db_saturation",
+    "true_factors": [
+      "connection_pool_low",
+      "recent_deploy"
+    ],
+    "attempts": [
+      {
+        "fix": "db_failover",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0170": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy",
+      "version_upgrade"
+    ],
+    "attempts": [
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0171": {
+    "root_cause": "packet_loss",
+    "true_factors": [
+      "infra_change"
+    ],
+    "attempts": [
+      {
+        "fix": "drain_node",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0172": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "config_change"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0173": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0174": {
+    "root_cause": "network_latency",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": true
+      }
+    ]
+  },
+  "INC-0175": {
+    "root_cause": "config_error",
+    "true_factors": [
+      "config_change"
+    ],
+    "attempts": [
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0176": {
+    "root_cause": "db_saturation",
+    "true_factors": [
+      "connection_pool_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "db_failover",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0177": {
+    "root_cause": "cpu_saturation",
+    "true_factors": [
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0178": {
+    "root_cause": "config_error",
+    "true_factors": [
+      "config_change"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0179": {
+    "root_cause": "config_error",
+    "true_factors": [
+      "config_change"
+    ],
+    "attempts": [
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0180": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0181": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0182": {
+    "root_cause": "db_saturation",
+    "true_factors": [
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "db_failover",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0183": {
+    "root_cause": "db_saturation",
+    "true_factors": [
+      "connection_pool_low"
+    ],
+    "attempts": [
+      {
+        "fix": "db_failover",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0184": {
+    "root_cause": "db_saturation",
+    "true_factors": [
+      "connection_pool_low",
+      "infra_change"
+    ],
+    "attempts": [
+      {
+        "fix": "db_failover",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0185": {
+    "root_cause": "network_latency",
+    "true_factors": [
+      "dependency_degraded",
+      "infra_change"
+    ],
+    "attempts": [
+      {
+        "fix": "drain_node",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0186": {
+    "root_cause": "network_latency",
+    "true_factors": [
+      "dependency_degraded",
+      "infra_change"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": false,
+        "self_healed": true,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0187": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0188": {
+    "root_cause": "packet_loss",
+    "true_factors": [
+      "config_change",
+      "infra_change"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "drain_node",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0189": {
+    "root_cause": "db_saturation",
+    "true_factors": [
+      "feature_flag_change",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0190": {
+    "root_cause": "cache_stampede",
+    "true_factors": [
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "drain_node",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0191": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "clear_cache",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0192": {
+    "root_cause": "network_latency",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "drain_node",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0193": {
+    "root_cause": "config_error",
+    "true_factors": [
+      "config_change"
+    ],
+    "attempts": [
+      {
+        "fix": "drain_node",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": false,
+        "self_healed": true,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0194": {
+    "root_cause": "dependency_outage",
+    "true_factors": [
+      "dependency_degraded"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "drain_node",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0195": {
+    "root_cause": "dependency_outage",
+    "true_factors": [
+      "dependency_degraded"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0196": {
+    "root_cause": "cpu_saturation",
+    "true_factors": [
+      "recent_deploy"
+    ],
+    "attempts": [
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0197": {
+    "root_cause": "config_error",
+    "true_factors": [
+      "config_change"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0198": {
+    "root_cause": "disk_full",
+    "true_factors": [
+      "disk_usage_high"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "db_failover",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "drain_node",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0199": {
+    "root_cause": "network_latency",
+    "true_factors": [
+      "infra_change"
+    ],
+    "attempts": [
+      {
+        "fix": "drain_node",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0200": {
+    "root_cause": "config_error",
+    "true_factors": [
+      "feature_flag_change"
+    ],
+    "attempts": [
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "drain_node",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0201": {
+    "root_cause": "cpu_saturation",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0202": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0203": {
+    "root_cause": "dependency_outage",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0204": {
+    "root_cause": "packet_loss",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "drain_node",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0205": {
+    "root_cause": "cpu_saturation",
+    "true_factors": [
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "clear_cache",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0206": {
+    "root_cause": "cpu_saturation",
+    "true_factors": [
+      "resource_limit_low",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0207": {
+    "root_cause": "cache_stampede",
+    "true_factors": [
+      "cache_cold",
+      "infra_change",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0208": {
+    "root_cause": "network_latency",
+    "true_factors": [
+      "infra_change"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "drain_node",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0209": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "config_change",
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0210": {
+    "root_cause": "dependency_outage",
+    "true_factors": [
+      "dependency_degraded"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0211": {
+    "root_cause": "disk_full",
+    "true_factors": [
+      "disk_usage_high"
+    ],
+    "attempts": [
+      {
+        "fix": "drain_node",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0212": {
+    "root_cause": "dependency_outage",
+    "true_factors": [
+      "dependency_degraded",
+      "feature_flag_change"
+    ],
+    "attempts": [
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0213": {
+    "root_cause": "db_saturation",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0214": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "clear_cache",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0215": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0216": {
+    "root_cause": "network_latency",
+    "true_factors": [
+      "config_change",
+      "dependency_degraded",
+      "infra_change"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0217": {
+    "root_cause": "cache_stampede",
+    "true_factors": [
+      "cache_cold"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "clear_cache",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0218": {
+    "root_cause": "network_latency",
+    "true_factors": [
+      "dependency_degraded",
+      "feature_flag_change"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0219": {
+    "root_cause": "config_error",
+    "true_factors": [
+      "config_change"
+    ],
+    "attempts": [
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0220": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0221": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0222": {
+    "root_cause": "disk_full",
+    "true_factors": [
+      "disk_usage_high",
+      "recent_deploy"
+    ],
+    "attempts": [
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "drain_node",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0223": {
+    "root_cause": "dependency_outage",
+    "true_factors": [
+      "dependency_degraded"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0224": {
+    "root_cause": "disk_full",
+    "true_factors": [
+      "disk_usage_high"
+    ],
+    "attempts": [
+      {
+        "fix": "drain_node",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "clear_cache",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0225": {
+    "root_cause": "config_error",
+    "true_factors": [
+      "feature_flag_change"
+    ],
+    "attempts": [
+      {
+        "fix": "drain_node",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0226": {
+    "root_cause": "db_saturation",
+    "true_factors": [
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0227": {
+    "root_cause": "disk_full",
+    "true_factors": [
+      "disk_usage_high"
+    ],
+    "attempts": [
+      {
+        "fix": "drain_node",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0228": {
+    "root_cause": "cpu_saturation",
+    "true_factors": [
+      "resource_limit_low",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0229": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy",
+      "version_upgrade"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0230": {
+    "root_cause": "db_saturation",
+    "true_factors": [
+      "connection_pool_low",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "db_failover",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0231": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": true
+      }
+    ]
+  },
+  "INC-0232": {
+    "root_cause": "dependency_outage",
+    "true_factors": [
+      "dependency_degraded"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0233": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0234": {
+    "root_cause": "cpu_saturation",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0235": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0236": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0237": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy",
+      "version_upgrade"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0238": {
+    "root_cause": "db_saturation",
+    "true_factors": [
+      "connection_pool_low",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "db_failover",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0239": {
+    "root_cause": "disk_full",
+    "true_factors": [
+      "disk_usage_high"
+    ],
+    "attempts": [
+      {
+        "fix": "drain_node",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0240": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy",
+      "version_upgrade"
+    ],
+    "attempts": [
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0241": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0242": {
+    "root_cause": "cpu_saturation",
+    "true_factors": [
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0243": {
+    "root_cause": "config_error",
+    "true_factors": [
+      "feature_flag_change"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0244": {
+    "root_cause": "cache_stampede",
+    "true_factors": [
+      "cache_cold",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "clear_cache",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0245": {
+    "root_cause": "packet_loss",
+    "true_factors": [
+      "config_change",
+      "infra_change"
+    ],
+    "attempts": [
+      {
+        "fix": "drain_node",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0246": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0247": {
+    "root_cause": "dependency_outage",
+    "true_factors": [
+      "dependency_degraded"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0248": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0249": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy"
+    ],
+    "attempts": [
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0250": {
+    "root_cause": "cpu_saturation",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0251": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "config_change"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0252": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "clear_cache",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0253": {
+    "root_cause": "dependency_outage",
+    "true_factors": [
+      "dependency_degraded"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0254": {
+    "root_cause": "network_latency",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0255": {
+    "root_cause": "cpu_saturation",
+    "true_factors": [
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0256": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0257": {
+    "root_cause": "disk_full",
+    "true_factors": [
+      "disk_usage_high"
+    ],
+    "attempts": [
+      {
+        "fix": "drain_node",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0258": {
+    "root_cause": "config_error",
+    "true_factors": [
+      "config_change"
+    ],
+    "attempts": [
+      {
+        "fix": "db_failover",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0259": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low"
+    ],
+    "attempts": [
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0260": {
+    "root_cause": "disk_full",
+    "true_factors": [
+      "disk_usage_high"
+    ],
+    "attempts": [
+      {
+        "fix": "drain_node",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0261": {
+    "root_cause": "dependency_outage",
+    "true_factors": [
+      "config_change",
+      "dependency_degraded"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0262": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy",
+      "version_upgrade"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "clear_cache",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0263": {
+    "root_cause": "db_saturation",
+    "true_factors": [
+      "connection_pool_low",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "db_failover",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0264": {
+    "root_cause": "dependency_outage",
+    "true_factors": [
+      "dependency_degraded"
+    ],
+    "attempts": [
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "clear_cache",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0265": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "recent_deploy"
+    ],
+    "attempts": [
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0266": {
+    "root_cause": "config_error",
+    "true_factors": [
+      "config_change"
+    ],
+    "attempts": [
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": true,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0267": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0268": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0269": {
+    "root_cause": "dependency_outage",
+    "true_factors": [
+      "dependency_degraded"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0270": {
+    "root_cause": "config_error",
+    "true_factors": [
+      "config_change"
+    ],
+    "attempts": [
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0271": {
+    "root_cause": "network_latency",
+    "true_factors": [
+      "infra_change"
+    ],
+    "attempts": [
+      {
+        "fix": "drain_node",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0272": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0273": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0274": {
+    "root_cause": "dependency_outage",
+    "true_factors": [
+      "config_change",
+      "dependency_degraded"
+    ],
+    "attempts": [
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0275": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0276": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0277": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low"
+    ],
+    "attempts": [
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0278": {
+    "root_cause": "cpu_saturation",
+    "true_factors": [
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0279": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0280": {
+    "root_cause": "connection_exhaustion",
+    "true_factors": [
+      "connection_pool_low",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0281": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "raise_resource_limits",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "drain_node",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0282": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "config_change"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0283": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0284": {
+    "root_cause": "network_latency",
+    "true_factors": [
+      "config_change",
+      "dependency_degraded",
+      "infra_change"
+    ],
+    "attempts": [
+      {
+        "fix": "clear_cache",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": true
+      }
+    ]
+  },
+  "INC-0285": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "drain_node",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0286": {
+    "root_cause": "packet_loss",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "drain_node",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0287": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0288": {
+    "root_cause": "dependency_outage",
+    "true_factors": [
+      "dependency_degraded"
+    ],
+    "attempts": [
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0289": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0290": {
+    "root_cause": "cpu_saturation",
+    "true_factors": [
+      "infra_change"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0291": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "config_change"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0292": {
+    "root_cause": "cache_stampede",
+    "true_factors": [
+      "cache_cold",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "clear_cache",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0293": {
+    "root_cause": "memory_leak",
+    "true_factors": [
+      "resource_limit_low"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0294": {
+    "root_cause": "dependency_outage",
+    "true_factors": [
+      "dependency_degraded"
+    ],
+    "attempts": [
+      {
+        "fix": "clear_cache",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0295": {
+    "root_cause": "memory_leak",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0296": {
+    "root_cause": "cache_stampede",
+    "true_factors": [
+      "cache_cold",
+      "traffic_spike"
+    ],
+    "attempts": [
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0297": {
+    "root_cause": "config_error",
+    "true_factors": [
+      "feature_flag_change"
+    ],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": true
+      }
+    ]
+  },
+  "INC-0298": {
+    "root_cause": "network_latency",
+    "true_factors": [],
+    "attempts": [
+      {
+        "fix": "restart_service",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "scale_out",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0299": {
+    "root_cause": "bad_deploy",
+    "true_factors": [
+      "recent_deploy",
+      "version_upgrade"
+    ],
+    "attempts": [
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  },
+  "INC-0300": {
+    "root_cause": "config_error",
+    "true_factors": [
+      "config_change"
+    ],
+    "attempts": [
+      {
+        "fix": "rollback_deploy",
+        "fix_worked": false,
+        "self_healed": false,
+        "clicked_resolved": false
+      },
+      {
+        "fix": "toggle_feature_flag",
+        "fix_worked": true,
+        "self_healed": false,
+        "clicked_resolved": false
+      }
+    ]
+  }
+}

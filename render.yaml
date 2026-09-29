@@ -1,0 +1,20 @@
+# Render deploy config (docs/SPEC.md S2.1: backend on Render, free tier).
+# Render Blueprint: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: trustlens-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt && python -m generator
+    startCommand: python -m uvicorn api.app:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: MEMORY_STORE
+        value: hindsight   # set to `fake` to demo without Hindsight credentials
+      - key: HINDSIGHT_API_KEY
+        sync: false
+      - key: HINDSIGHT_BASE_URL
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: CORS_ORIGINS
+        value: "*"          # tighten to the deployed Vercel URL once known
